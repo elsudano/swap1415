@@ -18,3 +18,4 @@ En la primera practica intentaremos crear un repositorio en github y utilizar la
 * crm
 
 ### Objetivos
+![Imagen de Prueba](/resources/prueba.jpg)
