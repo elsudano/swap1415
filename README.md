@@ -11,7 +11,7 @@ En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las pre
 En la primera practica crearemos un repositorio en github y utilizar la herramienta git para realizar la subida y descargas de los diferentes ficheros de configuración necesarios para la correcta configuración de los servidores.
 
 ### Segunda Práctica
-<img src="/resources/prueba.jpg" alt="Logo RSync" style="width:75px;height:25px">
+<img src="/resources/prueba.jpg" alt="Logo RSync" style="width:75;height:25">
 En la segunda practica utilizaremos las herramientas rsync, para poder replicar la configuración entre los distintos servidores y así poder tener la seguridad de que si perdemos un servidor tendremos otro de respaldo. 
 
 ### Tercera Práctica
