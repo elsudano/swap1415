@@ -4,6 +4,11 @@ Asignatura SWAP 14/15
 
 En este repositorio guardaremos todas las practicas de la asignatura SWAP
 
+### Objetivos
+|Descripción||
+|---|---:|
+|Esta claro que en esta asignatura, lo que se pretende es llevar a buen puerto la creación de un granja de servidores para que esta pueda soportar un gran carga de trabajo sin que se vea afectada por ello.||
+
 ### Ejercicios de Clase
 |Descripción||
 |---|---:|
@@ -38,11 +43,6 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 |Descripción||
 |---|---:|
 |Configuración de discos en RAID, tal y como hicimos en asignaturas anteriores intentaremos replicar la información en diferentes discos duros para conseguir que nuestros datos, aparte de tener la consistencia necesaria, también estén seguros frentes a posibles catástrofes.||
-
-### Objetivos
-|Descripción||
-|---|---:|
-|Esta claro que en esta asignatura, lo que se pretende es llevar a buen puerto la creación de un granja de servidores para que esta pueda soportar un gran carga de trabajo sin que se vea afectada por ello.||
 <!--
 ![Imagen de Prueba](/resources/prueba.jpg = 100x50)
 -->
