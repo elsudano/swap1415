@@ -6,7 +6,8 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 
 ### Ejercicios de Clase
 |Descripción||
-|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.||
+|---|---:|
+|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|/resources/github_logo.jpg|
 
 ### Primera Práctica
 |Descripción||
