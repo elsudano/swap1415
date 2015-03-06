@@ -5,8 +5,8 @@ Asignatura SWAP 14/15
 En este repositorio guardaremos todas las practicas de la asignatura SWAP
 
 ### Objetivos
-|Descripción||
-|---|---:|
+|Descripción|
+|:---:|
 |Esta claro que en esta asignatura, lo que se pretende es llevar a buen puerto la creación de un granja de servidores para que esta pueda soportar un gran carga de trabajo sin que se vea afectada por ello.||
 
 ### Ejercicios de Clase
