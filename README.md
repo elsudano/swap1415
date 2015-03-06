@@ -7,7 +7,7 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Ejercicios de Clase
 |Descripción||
 |---|---:|
-|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|<img src="/resources/bloc_notas.jpg" alt="Logo Bloc de Notas">|
+|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|<img src="/resources/bloc_notas.jpg" alt="Logo Bloc de Notas" width="50" height="50">|
 
 ### Primera Práctica
 |Descripción||
