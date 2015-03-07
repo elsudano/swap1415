@@ -8,33 +8,33 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 En Esta practica se pretende configurar dos servidores web para que tengan la misma configuración en su servidor apache, y también en las paginas que sirven a sus clientes
 
 ### Comandos usados
-* Primero nos validamos como superusuario
-[usuario@WEB1 /]$ su
-Contraseña: 
-[root@WEB1 /]#
+* Primero nos validamos como superusuario <br />
+[usuario@WEB1 /]$ su<br />
+Contraseña: <br />
+[root@WEB1 /]# <br />
 
-* Para generar las claves necesarias RSA
-[root@WEB1 /]# ssh-keygen -b 2048 -t rsa
-Generating public/private rsa key pair.
-Enter file in which to save the key (/root/.ssh/id_rsa): 
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in /root/.ssh/id_rsa.
-Your public key has been saved in /root/.ssh/id_rsa.pub.
-The key fingerprint is:
-c4:40:28:f5:92:04:f4:06:27:d5:de:e2:f4:48:6d:f5 root@WEB1
-The key's randomart image is:
-+--[ RSA 2048]----+
-| .=+=+o          |
-|  .*.o.o  .      |
-|   .=..oo. .     |
-|   . .=.+   E    |
-|     + =S        |
-|      o .        |
-|                 |
-|                 |
-|                 |
-+-----------------+
+* Para generar las claves necesarias RSA <br />
+[root@WEB1 /]# ssh-keygen -b 2048 -t rsa <br />
+Generating public/private rsa key pair. <br />
+Enter file in which to save the key (/root/.ssh/id_rsa):<br />
+Enter passphrase (empty for no passphrase): <br />
+Enter same passphrase again: <br />
+Your identification has been saved in /root/.ssh/id_rsa. <br />
+Your public key has been saved in /root/.ssh/id_rsa.pub. <br />
+The key fingerprint is: <br />
+c4:40:28:f5:92:04:f4:06:27:d5:d3:e2:f4:48:6d:f5 root@WEB1 <br />
+The key's randomart image is: <br />
++--[ RSA 2048]----+ <br />
+\| .=+=+o          \| <br />
+\|  .*.o.o  .      \| <br />
+\|   .=..oo. .     \| <br />
+\|   . .=.+   E    \| <br />
+\|     + =S        \| <br />
+\|      o .        \| <br />
+\|                 \| <br />
+\|                 \| <br />
+\|                 \| <br />
++-----------------+ <br />
 
 
 * Copiamos la clave publica al segundo servidor
