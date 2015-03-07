@@ -24,16 +24,16 @@ Your public key has been saved in /root/.ssh/id_rsa.pub. <br />
 The key fingerprint is: <br />
 c4:40:28:f5:92:04:f4:06:27:d5:d3:e2:f4:48:6d:f5 root@WEB1 <br />
 
-* Copiamos la clave publica al segundo servidor
-[root@WEB1 /]# ssh-copy-id root@<WEB2> *ponemos su numbre DNS*
-root@WEB2's password 
-Number of key(s) added: 1
+* Copiamos la clave publica al segundo servidor <br />
+[root@WEB1 /]# ssh-copy-id root@<WEB2> *ponemos su numbre DNS* <br />
+root@WEB2's password  <br />
+Number of key(s) added: 1 <br />
 
-* Probamos que rsync puede copiar los ficheros sin que tengamos que introducir ninguna contraseña
-[root@WEB1 /]# rsync -avz -e ssh root@<WEB2>:/var/www/html/ /var/www/html/
-receiving incremental file list
-sent 262 bytes  received 55856 bytes  112236.00 bytes/sec
-total size is 33977792  speedup is 605.47
+* Probamos que rsync puede copiar los ficheros sin que tengamos que introducir ninguna contraseña <br />
+[root@WEB1 /]# rsync -avz -e ssh root@<WEB2>:/var/www/html/ /var/www/html/ <br />
+receiving incremental file list <br />
+sent 262 bytes  received 55856 bytes  112236.00 bytes/sec <br />
+total size is 33977792  speedup is 605.47 <br />
 
 <!--
 ![Imagen de Prueba](/resources/prueba.jpg = 100x50)
