@@ -2,8 +2,6 @@ Practica 2
 ==========
 *Configurando RSync y SSH sin contraseñas*
 
-En este repositorio guardaremos todas las practicas de la asignatura SWAP
-
 ### Objetivos
 En Esta practica se pretende configurar dos servidores web para que tengan la misma configuración en su servidor apache, y también en las paginas que sirven a sus clientes
 
