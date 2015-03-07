@@ -23,19 +23,6 @@ Your identification has been saved in /root/.ssh/id_rsa. <br />
 Your public key has been saved in /root/.ssh/id_rsa.pub. <br />
 The key fingerprint is: <br />
 c4:40:28:f5:92:04:f4:06:27:d5:d3:e2:f4:48:6d:f5 root@WEB1 <br />
-The key's randomart image is: <br />
-+--[ RSA 2048]----+ <br />
-\|_.=+=+o__________\| <br />
-\|__.*.o.o__.______\| <br />
-\|___\.=..oo._._____\| <br />
-\|___\.\_.=.+___E____\| <br />
-\|_____+\_\=S_______\| <br />
-\|______o_.________\| <br />
-\|_________________\| <br />
-\|_________________\| <br />
-\|_________________\| <br />
-+-----------------+ <br />
-
 
 * Copiamos la clave publica al segundo servidor
 [root@WEB1 /]# ssh-copy-id root@<WEB2> *ponemos su numbre DNS*
