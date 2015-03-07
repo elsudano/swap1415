@@ -30,10 +30,10 @@ root@WEB2's password  <br />
 Number of key(s) added: 1 <br />
 
 * Probamos que rsync puede copiar los ficheros sin que tengamos que introducir ninguna contraseña <br />
-[root@WEB1 /]# rsync -avz -e ssh root@<WEB2>:/var/www/html/ /var/www/html/ <br />
+<pre><code>[root@WEB1 /]# rsync -avz -e ssh root@<WEB2>:/var/www/html/ /var/www/html/ <br />
 receiving incremental file list <br />
 sent 262 bytes  received 55856 bytes  112236.00 bytes/sec <br />
-total size is 33977792  speedup is 605.47 <br />
+total size is 33977792  speedup is 605.47 <br /></code></pre>
 
 <!--
 ![Imagen de Prueba](/resources/prueba.jpg = 100x50)
