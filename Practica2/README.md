@@ -9,12 +9,12 @@ En Esta practica se pretende configurar dos servidores web para que tengan la mi
 
 ### Comandos usados
 * Primero nos validamos como superusuario <br />
-[usuario@WEB1 /]$ su<br />
+<pre><code>[usuario@WEB1 /]$ su<br />
 Contraseña: <br />
-[root@WEB1 /]# <br />
+[root@WEB1 /]# <br /></code></pre>
 
 * Para generar las claves necesarias RSA <br />
-[root@WEB1 /]# ssh-keygen -b 2048 -t rsa <br />
+<pre><code>[root@WEB1 /]# ssh-keygen -b 2048 -t rsa <br />
 Generating public/private rsa key pair. <br />
 Enter file in which to save the key (/root/.ssh/id_rsa):<br />
 Enter passphrase (empty for no passphrase): <br />
@@ -22,12 +22,12 @@ Enter same passphrase again: <br />
 Your identification has been saved in /root/.ssh/id_rsa. <br />
 Your public key has been saved in /root/.ssh/id_rsa.pub. <br />
 The key fingerprint is: <br />
-c4:40:28:f5:92:04:f4:06:27:d5:d3:e2:f4:48:6d:f5 root@WEB1 <br />
+c4:40:28:f5:92:04:f4:06:27:d5:d3:e2:f4:48:6d:f5 root@WEB1 <br /></code></pre>
 
 * Copiamos la clave publica al segundo servidor <br />
-[root@WEB1 /]# ssh-copy-id root@<WEB2> *ponemos su numbre DNS* <br />
+<pre><code>[root@WEB1 /]# ssh-copy-id root@<WEB2> *ponemos su numbre DNS* <br />
 root@WEB2's password  <br />
-Number of key(s) added: 1 <br />
+Number of key(s) added: 1 <br /></code></pre>
 
 * Probamos que rsync puede copiar los ficheros sin que tengamos que introducir ninguna contraseña <br />
 <pre><code>[root@WEB1 /]# rsync -avz -e ssh root@<WEB2>:/var/www/html/ /var/www/html/ <br />
