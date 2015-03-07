@@ -35,6 +35,8 @@ receiving incremental file list <br />
 sent 262 bytes  received 55856 bytes  112236.00 bytes/sec <br />
 total size is 33977792  speedup is 605.47 <br /></code></pre>
 
+### Conclusiones
+Esta claro que los comando que se han explicado en el párrafo anterior también son aplicables al segundo servidor, por supuesto hay que tener claro como queremos que se repliquen los datos, puesto que si tenemos uno como maestro, y otro como esclavo, tenemos que tener en cuenta esa topología, ahora bien si queremos que ambos servidores sean maestros, tendremos que reproducir todos los comandos incluso los del cron. 
 <!--
 ![Imagen de Prueba](/resources/prueba.jpg = 100x50)
 -->
