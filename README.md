@@ -12,7 +12,7 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Ejercicios de Clase
 |Descripción||
 |---|---:|
-|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|![Imagen de Prueba](/resources/prueba.jpg = 100x50)|
+|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|![Imagen de Prueba](/resources/prueba.jpg =100x50)|
 
 ### Primera Práctica
 |Descripción||
