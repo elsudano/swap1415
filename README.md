@@ -12,17 +12,17 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Ejercicios de Clase
 |Descripción||
 |---|---:|
-|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|<img src="/resources/bloc_notas.jpg" alt="Logo Bloc de Notas" width="70" height="70">|
+|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|<img src="/resources/bloc_notas.jpg" alt="Logo Bloc de Notas" width="30%" height="30%">|
 
 ### Primera Práctica
 |Descripción||
 |---|---:|
-|En la primera practica crearemos un repositorio en github y utilizar la herramienta git para realizar la subida y descargas de los diferentes ficheros de configuración necesarios para la correcta configuración de los servidores.|<img src="/resources/github_logo.jpg" alt="Logo GitHub" width="70" height="70">|
+|En la primera practica crearemos un repositorio en github y utilizar la herramienta git para realizar la subida y descargas de los diferentes ficheros de configuración necesarios para la correcta configuración de los servidores.|<img src="/resources/github_logo.jpg" alt="Logo GitHub" width="30%" height="30%">|
 
 ### Segunda Práctica
 |Descripción||
 |---|---:|
-| En la segunda practica utilizaremos las herramientas rsync, para poder replicar la configuración entre los distintos servidores y así poder tener la seguridad de que si perdemos un servidor tendremos otro de respaldo. | <img src="/resources/prueba.jpg" alt="Logo RSync" width="70" height="70"> |
+| En la segunda practica utilizaremos las herramientas rsync, para poder replicar la configuración entre los distintos servidores y así poder tener la seguridad de que si perdemos un servidor tendremos otro de respaldo. | <img src="/resources/prueba.jpg" alt="Logo RSync" width="30%" height="30%"> |
 
 ### Tercera Práctica
 |Descripción||
