@@ -12,7 +12,7 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Ejercicios de Clase
 |Descripción||
 |---|---:|
-|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|<img src="/resources/bloc_notas.jpg" alt="Logo Bloc de Notas" width="30%" height="30%">|
+|En la carpeta de ejercicios de clase iremos añadiendo las respuestas de las preguntas propuestas en clase.|![Imagen de Prueba](/resources/prueba.jpg = 100x50)|
 
 ### Primera Práctica
 |Descripción||
@@ -44,5 +44,5 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 |---|---:|
 |Configuración de discos en RAID, tal y como hicimos en asignaturas anteriores intentaremos replicar la información en diferentes discos duros para conseguir que nuestros datos, aparte de tener la consistencia necesaria, también estén seguros frentes a posibles catástrofes.||
 <!--
-![Imagen de Prueba](/resources/prueba.jpg = 100x50)
+
 -->
