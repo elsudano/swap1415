@@ -17,22 +17,22 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Primera Práctica
 |Descripción||
 |:---|---:|
-|En la primera practica crearemos un repositorio en github y utilizar la herramienta git para realizar la subida y descargas de los diferentes ficheros de configuración necesarios para la correcta configuración de los servidores.|![Imagen de Prueba](/Practica1/github.jpg "Logotipo GitHub")|
+|En la primera practica crearemos un repositorio en github y utilizar la herramienta git para realizar la subida y descargas de los diferentes ficheros de configuración necesarios para la correcta configuración de los servidores.|![Logotipo GitHub](/Practica1/github.jpg "Logotipo GitHub")|
 
 ### Segunda Práctica
 |Descripción||
 |:---|---:|
-| En la segunda practica utilizaremos las herramientas rsync, para poder replicar la configuración entre los distintos servidores y así poder tener la seguridad de que si perdemos un servidor tendremos otro de respaldo.|![Imagen de Prueba](/Practica2/rsync.jpg "Logotipo de RSync")|
+| En la segunda practica utilizaremos las herramientas rsync, para poder replicar la configuración entre los distintos servidores y así poder tener la seguridad de que si perdemos un servidor tendremos otro de respaldo.|![Logotipo de RSync](/Practica2/rsync.jpg "Logotipo de RSync")|
 
 ### Tercera Práctica
 |Descripción||
 |:---|---:|
-|Balanceo de carga en una granja web, utilizaremos haproxy y nginx, como balanceadores de carga para repartir el trabajo en nuestra granja de servidores, por supuesto son balanceadores software, pero los compararemos con balanceadores hardware.|![Imagen de Prueba](/Practica3/nginx.jpg "Logotipo Nginx")|
+|Balanceo de carga en una granja web, utilizaremos haproxy y nginx, como balanceadores de carga para repartir el trabajo en nuestra granja de servidores, por supuesto son balanceadores software, pero los compararemos con balanceadores hardware.|![Logotipo Nginx](/Practica3/nginx.jpg "Logotipo Nginx")|
 
 ### Cuarta Práctica
 |Descripción||
 |:---|---:|
-|Evaluación de prestaciones, en esta practica comprobaremos que rendimiento puede darnos nuestra granja web con nuestro balanceador, y si es posible montar un pequeño CPD virtualizado |![Imagen de Prueba](/Practica4/ap.jpg "Logotipo Apache Bechmark")|
+|Evaluación de prestaciones, en esta practica comprobaremos que rendimiento puede darnos nuestra granja web con nuestro balanceador, y si es posible montar un pequeño CPD virtualizado |![Logotipo Apache Bechmark](/Practica4/ap.jpg "Logotipo Apache Bechmark")|
 
 ### Quinta Práctica
 |Descripción||
@@ -42,4 +42,4 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Sexta Práctica
 |Descripción||
 |:---|---:|
-|Configuración de discos en RAID, tal y como hicimos en asignaturas anteriores intentaremos replicar la información en diferentes discos duros para conseguir que nuestros datos, aparte de tener la consistencia necesaria, también estén seguros frentes a posibles catástrofes.|![Imagen de Prueba](/Practica6/raid01.jpg "Logotipo RAID")|
+|Configuración de discos en RAID, tal y como hicimos en asignaturas anteriores intentaremos replicar la información en diferentes discos duros para conseguir que nuestros datos, aparte de tener la consistencia necesaria, también estén seguros frentes a posibles catástrofes.|![Logotipo RAID](/Practica6/raid01.jpg "Logotipo RAID")|
