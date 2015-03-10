@@ -42,4 +42,4 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Sexta Práctica
 |Descripción||
 |:---|---:|
-|Configuración de discos en RAID, tal y como hicimos en asignaturas anteriores intentaremos replicar la información en diferentes discos duros para conseguir que nuestros datos, aparte de tener la consistencia necesaria, también estén seguros frentes a posibles catástrofes.|![Logotipo RAID](/Practica6/raid01.jpg "Logotipo RAID")|
+|Configuración de discos en RAID, tal y como hicimos en asignaturas anteriores intentaremos replicar la información en diferentes discos duros para conseguir que nuestros datos, aparte de tener la consistencia necesaria, también estén seguros frentes a posibles catástrofes.|![Logotipo RAID](/Practica6/RAID01.jpg "Logotipo RAID")|
