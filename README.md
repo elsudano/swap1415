@@ -32,7 +32,7 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Cuarta Práctica
 |Descripción||
 |:---|---:|
-|Evaluación de prestaciones, en esta practica comprobaremos que rendimiento puede darnos nuestra granja web con nuestro balanceador, y si es posible montar un pequeño CPD virtualizado |![Logotipo Apache Benchmark](/Practica4/ap.jpg "Logotipo Apache Benchmark")|
+|Evaluación de prestaciones, en esta practica comprobaremos que rendimiento puede darnos nuestra granja web con nuestro balanceador, y si es posible montar un pequeño CPD virtualizado |![Logotipo Apache Benchmark](/Practica4/apache.jpg "Logotipo Apache Benchmark")|
 
 ### Quinta Práctica
 |Descripción||
