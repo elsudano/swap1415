@@ -37,7 +37,7 @@ En este repositorio guardaremos todas las practicas de la asignatura SWAP
 ### Quinta Práctica
 |Descripción||
 |:---|---:|
-|Replicación de bases de datos maestro-esclavos, y también maestro-maestro, esta ultima es un poco mas complicada de configurar pero nos da un plus a la hora de replicar nuestras bases de datos puesto que el ordenador que se queda siempre va a poder replicarse de forma autónoma.|![Imagen de Prueba](/resources/practica5.jpg "Esto es una Prueba")|
+|Replicación de bases de datos maestro-esclavos, y también maestro-maestro, esta ultima es un poco mas complicada de configurar pero nos da un plus a la hora de replicar nuestras bases de datos puesto que el ordenador que se queda siempre va a poder replicarse de forma autónoma.|![Réplica Base de Datos](/Practica5/basedatos.jpg "Réplica Base de Datos")|
 
 ### Sexta Práctica
 |Descripción||
