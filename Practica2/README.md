@@ -1,7 +1,7 @@
 Practica 2
 ==========
 ----------------------------------------------------------------------------------
-*Configurando RSync y SSH sin contraseñas*                  ![Logotipo](rsync.jpg =50x50)
+*Configurando RSync y SSH sin contraseñas*                  <img src="rsync.jpg" alt="Logotipo" width="50px" height="50px">
 --------------------------------------------------------  ------------------------
 
 ### Objetivos
