@@ -49,7 +49,7 @@ http {
 }
 ```
 
-* **httpd.conf**
+* **httpd.conf** en los dos servidores
 ```bash
 ServerRoot "/etc/httpd"
 Listen \*:80
@@ -84,7 +84,6 @@ LogLevel warn
 <IfModule log_config_module>
     LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
     LogFormat "%h %l %u %t \"%r\" %>s %b" common
-
     <IfModule logio_module>
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
     </IfModule>
