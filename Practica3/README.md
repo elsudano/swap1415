@@ -17,7 +17,7 @@ En esta practica se pretende simular un granja web con un balanceador de carga y
 
 ### Ficheros de Configuración finales
 
-* #### **nginx.conf**
+* **nginx.conf**
 <pre><code>
 events { <br />
     worker_connections  1024; <br />
@@ -47,6 +47,67 @@ http {<br />
          }<br />
      }<br />
 }<br />
+</code></pre>
+
+* **httpd.conf** de ambos servidores
+<pre><code>
+ServerRoot "/etc/httpd"<br />
+Listen *:80<br />
+Include conf.modules.d/*.conf<br />
+User apache<br />
+Group apache<br />
+ServerAdmin root@localhost<br />
+<Directory /><br />
+    AllowOverride none<br />
+    \#Require all denied<br />
+    Require all granted<br />
+</Directory><br />
+DocumentRoot "/var/www/html"<br />
+<Directory "/var/www"><br />
+    AllowOverride None<br />
+    # Allow open access:<br />
+    Require all granted<br />
+</Directory><br />
+<Directory "/var/www/html"><br />
+    Options Indexes FollowSymLinks<br />
+    AllowOverride None<br />
+    Require all granted<br />
+</Directory><br />
+<IfModule dir_module><br />
+    DirectoryIndex index.html<br />
+</IfModule><br />
+<Files ".ht*"><br />
+    Require all denied<br />
+</Files><br />
+ErrorLog "logs/error_log"<br />
+LogLevel warn<br />
+<IfModule log_config_module><br />
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined<br />
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common<br />
+    <IfModule logio_module><br />
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio<br />
+    </IfModule><br />
+    CustomLog "logs/access_log" combined<br />
+</IfModule><br />
+<IfModule alias_module><br />
+    ScriptAlias /cgi-bin/ /var/www/cgi-bin/<br />
+</IfModule><br />
+<Directory "/var/www/cgi-bin"><br />
+    AllowOverride None<br />
+    Options None<br />
+    Require all granted<br />
+</Directory><br />
+<IfModule mime_module><br />
+    TypesConfig /etc/mime.types<br />
+    AddType application/x-compress .Z<br />
+    AddType application/x-gzip .gz .tgz<br />
+    AddType text/html .shtml<br />
+    AddOutputFilter INCLUDES .shtml<br />
+</IfModule><br />
+AddDefaultCharset UTF-8<br />
+EnableSendfile on<br />
+IncludeOptional conf.d/*.conf<br />
+ServerTokens Minor<br />
 </code></pre>
 
 ### Conclusiones
