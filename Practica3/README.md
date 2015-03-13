@@ -50,18 +50,21 @@ http {<br />
 </code></pre>
 
 * **httpd.conf**
-`ServerRoot "/etc/httpd"`<br />
-`Listen \*:80`<br />
-`Include conf.modules.d/\*.conf`<br />
-`User apache`<br />
-`Group apache`<br />
-`ServerAdmin root@localhost`<br />
+<pre><code>
+ServerRoot "/etc/httpd"<br />
+Listen \*:80<br />
+Include conf.modules.d/\*.conf<br />
+User apache<br />
+Group apache<br />
+ServerAdmin root@localhost<br />
+
 `<Directory />`<br />
     AllowOverride none<br />
     \#Require all denied<br />
     Require all granted<br />
 `</Directory>`<br />
 DocumentRoot "/var/www/html"<br />
+</code></pre>
 `<Directory "/var/www">`<br />
     AllowOverride None<br />
     # Allow open access:<br />
