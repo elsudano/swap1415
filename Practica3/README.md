@@ -57,7 +57,13 @@ Include conf.modules.d/\*.conf<br />
 User apache<br />
 Group apache<br />
 ServerAdmin root@localhost<br />
-
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
 ```<Directory /><br />
     AllowOverride none<br />
     \#Require all denied<br />
