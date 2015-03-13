@@ -1,8 +1,7 @@
-Practica 2
+Practica 2 <img src="rsync.jpg" alt="Logotipo" width="50px" height="50px">
 ==========
-----------------------------------------------------------------------------------
-*Configurando RSync y SSH sin contraseñas*                  <img src="rsync.jpg" alt="Logotipo" width="50px" height="50px">
---------------------------------------------------------  ------------------------
+
+*Configurando RSync y SSH sin contraseñas*
 
 ### Objetivos
 En Esta practica se pretende configurar dos servidores web para que tengan la misma configuración en su servidor apache, y también en las paginas que sirven a sus clientes
