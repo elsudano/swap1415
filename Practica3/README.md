@@ -50,7 +50,7 @@ http {<br />
 </code></pre>
 
 * **httpd.conf** de ambos servidores
-<pre><code>
+
 ServerRoot "/etc/httpd"<br />
 Listen *:80<br />
 Include conf.modules.d/*.conf<br />
