@@ -1,7 +1,7 @@
 Practica 2
 ==========
 ----------------------------------------------------------------------------------
-*Configurando RSync y SSH sin contraseñas*                      Esto es una prueba
+*Configurando RSync y SSH sin contraseñas*                     Esto es una prueba:
 --------------------------------------------------------  ------------------------
 :![Logotipo](rsync.jpg)
 ### Objetivos
