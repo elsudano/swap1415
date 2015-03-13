@@ -58,11 +58,11 @@ User apache<br />
 Group apache<br />
 ServerAdmin root@localhost<br />
 
-`<Directory />`<br />
+```<Directory /><br />
     AllowOverride none<br />
     \#Require all denied<br />
     Require all granted<br />
-`</Directory>`<br />
+</Directory>```<br />
 DocumentRoot "/var/www/html"<br />
 </code></pre>
 `<Directory "/var/www">`<br />
