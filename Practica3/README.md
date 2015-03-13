@@ -50,14 +50,12 @@ http {<br />
 </code></pre>
 
 * **httpd.conf**
-<pre><code>
-ServerRoot "/etc/httpd"<br />
-Listen \*:80<br />
-Include conf.modules.d/\*.conf<br />
-User apache<br />
-Group apache<br />
-ServerAdmin root@localhost<br />
-</code></pre>
+`ServerRoot "/etc/httpd"`<br />
+`Listen \*:80`<br />
+`Include conf.modules.d/\*.conf`<br />
+`User apache`<br />
+`Group apache`<br />
+`ServerAdmin root@localhost`<br />
 `<Directory />`<br />
     AllowOverride none<br />
     \#Require all denied<br />
