@@ -16,6 +16,8 @@ En esta practica se pretende simular un granja web con un balanceador de carga y
 > Una vez que ya tenia las maquinas listas prepare una tercera maquina que sería la que nos serviría de balanceador de carga, en esta maquina instalé nginx y haproxy, con sus ficheros de configuración. <br />
 
 ### Ficheros de Configuración finales
+
+* #### **nginx.conf**
 <pre><code>
 events { <br />
     worker_connections  1024; <br />
@@ -28,7 +30,7 @@ http {<br />
           server 192.168.50.157;<br />
           keepalive 3;<br />
      }<br />
-     server{<br />
+     server{<br /><br />
          listen 80;<br />
          server_name m3lb;<br />
          access_log /var/log/nginx/m3lb.access.log;<br />
