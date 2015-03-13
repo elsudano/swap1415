@@ -51,72 +51,67 @@ http {<br />
 
 * **httpd.conf**
 <pre><code>
-ServerRoot "/etc/httpd"<br />
-Listen \*:80<br />
-Include conf.modules.d/\*.conf<br />
-User apache<br />
-Group apache<br />
-ServerAdmin root@localhost<br />
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}<Directory />
-```
-```<br />
-    AllowOverride none<br />
-    \#Require all denied<br />
-    Require all granted<br />
-</Directory>```<br />
-DocumentRoot "/var/www/html"<br />
-</code></pre>
-`<Directory "/var/www">`<br />
-    AllowOverride None<br />
-    # Allow open access:<br />
-    Require all granted<br />
-`</Directory>`<br />
-`<Directory "/var/www/html">`<br />
-    Options Indexes FollowSymLinks<br />
-    AllowOverride None<br />
-    Require all granted<br />
-`</Directory>`<br />
-`<IfModule dir_module>`<br />
-    DirectoryIndex index.html<br />
-`</IfModule>`<br />
-`<Files ".ht*">`<br />
-    Require all denied<br />
-`</Files>`<br />
-ErrorLog "logs/error_log"<br />
-LogLevel warn<br />
-`<IfModule log_config_module>`<br />
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined<br />
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common<br />
-    `<IfModule logio_module>`<br />
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio<br />
-    `</IfModule>`<br />
-    CustomLog "logs/access_log" combined<br />
-`</IfModule>`<br />
-`<IfModule alias_module>`<br />
-    ScriptAlias /cgi-bin/ /var/www/cgi-bin/<br />
-`</IfModule>`<br />
-`<Directory "/var/www/cgi-bin">`<br />
-    AllowOverride None<br />
-    Options None<br />
-    Require all granted<br />
-`</Directory>`<br />
-`<IfModule mime_module>`<br />
-    TypesConfig /etc/mime.types<br />
-    AddType application/x-compress .Z<br />
-    AddType application/x-gzip .gz .tgz<br />
-    AddType text/html .shtml<br />
-    AddOutputFilter INCLUDES .shtml<br />
-`</IfModule>`<br />
-AddDefaultCharset UTF-8<br />
-EnableSendfile on<br />
-IncludeOptional conf.d/*.conf<br />
-ServerTokens Minor<br />
+```bash
+ServerRoot "/etc/httpd"
+Listen \*:80
+Include conf.modules.d/\*.conf
+User apache
+Group apache
+ServerAdmin root@localhost
+<Directory />
+    AllowOverride none
+    \#Require all denied
+    Require all granted
+</Directory>
+DocumentRoot "/var/www/html"
+<Directory "/var/www">
+    AllowOverride None
+    # Allow open access:
+    Require all granted
+</Directory>
+<Directory "/var/www/html">
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+<IfModule dir_module>
+    DirectoryIndex index.html
+</IfModule>
+<Files ".ht*">
+    Require all denied
+</Files>
+ErrorLog "logs/error_log"
+LogLevel warn
+<IfModule log_config_module>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+    LogFormat "%h %l %u %t \"%r\" %>s %b" common
 
+    <IfModule logio_module>
+      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
+    </IfModule>
+    CustomLog "logs/access_log" combined
+</IfModule>
+<IfModule alias_module>
+    ScriptAlias /cgi-bin/ /var/www/cgi-bin/
+</IfModule>
+<Directory "/var/www/cgi-bin">
+    AllowOverride None
+    Options None
+    Require all granted
+</Directory>
+<IfModule mime_module>
+    TypesConfig /etc/mime.types
+    AddType application/x-compress .Z
+    AddType application/x-gzip .gz .tgz
+    AddType text/html .shtml
+    AddOutputFilter INCLUDES .shtml
+</IfModule>
+AddDefaultCharset UTF-8
+EnableSendfile on
+IncludeOptional conf.d/*.conf
+ServerTokens Minor
+```
+</code></pre>
 
 ### Conclusiones
 En esta practica he aprendido como de manera fácil y barata podemos montar nuestra granja web y asegurarme de que el el *uptime* de mi sitio web sea *casi del 100%* gracias a los dos servidores de paginas web.
