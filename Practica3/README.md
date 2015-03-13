@@ -57,22 +57,22 @@ Include conf.modules.d/*.conf<br />
 User apache<br />
 Group apache<br />
 ServerAdmin root@localhost<br />
-< Directory />
+< Directory/ >
     AllowOverride none<br />
     \#Require all denied<br />
     Require all granted<br />
-</ Directory >
+< /Directory >
 DocumentRoot "/var/www/html"<br />
 < Directory "/var/www" >
     AllowOverride None<br />
     # Allow open access:<br />
     Require all granted<br />
-</ Directory >
+< /Directory >
 < Directory "/var/www/html" >
     Options Indexes FollowSymLinks<br />
     AllowOverride None<br />
     Require all granted<br />
-</ Directory ><br />
+< /Directory ><br />
 < IfModule dir_module ><br />
     DirectoryIndex index.html<br />
 </IfModule><br />
