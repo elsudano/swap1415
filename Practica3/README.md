@@ -13,7 +13,39 @@ En esta practica se pretende simular un granja web con un balanceador de carga y
 > * Paso 3 <br />
 > Después clone la maquina resultado para poder tener las dos maquinas que me servirían las paginas web de mi granja, por supuesto tuve que realizar algunos cambios en la configuración de la segunda maquina para que no hubiera conflictos de IP ni de resolución de nombres. <br />
 > * Paso 4 <br />
-> Una vez que ya tenia las maquinas listas prepare una tercera maquina que seria la que nos serviría de de balanceador de carga, en esta maquina instalé nginx y haproxy, con sus ficheros de configuración. <br />
+> Una vez que ya tenia las maquinas listas prepare una tercera maquina que sería la que nos serviría de balanceador de carga, en esta maquina instalé nginx y haproxy, con sus ficheros de configuración. <br />
+
+### Ficheros de Configuración finales
+<pre><code>
+events { <br />
+    worker_connections  1024; <br />
+}<br />
+<br />
+http {<br />
+     upstream apaches {<br />
+          ip_hash;<br />
+          server 192.168.50.156 max_fails=3 fail_timeout=5s;<br />
+          server 192.168.50.157;<br />
+          keepalive 3;<br />
+     }<br />
+     server{<br />
+         listen 80;<br />
+         server_name m3lb;<br />
+         access_log /var/log/nginx/m3lb.access.log;<br />
+         error_log /var/log/nginx/m3lb.error.log;<br />
+         root /var/www/;<br />
+         location /<br />
+         {<br />
+             proxy_pass http://apaches;<br />
+             proxy_set_header Host $host;<br />
+             proxy_set_header X-Real-IP $remote_addr;<br />
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br />
+             proxy_http_version 1.1;<br />
+             proxy_set_header Connection "";<br />
+         }<br />
+     }<br />
+}<br />
+</code></pre>
 
 ### Conclusiones
-Esta claro que los comando que se han explicado en el párrafo anterior también son aplicables al segundo servidor, por supuesto hay que tener claro como queremos que se repliquen los datos, puesto que si tenemos uno como maestro, y otro como esclavo, tenemos que tener en cuenta esa topología, ahora bien si queremos que ambos servidores sean maestros, tendremos que reproducir todos los comandos incluso los del cron. 
+En esta practica he aprendido como de manera fácil y barata podemos montar nuestra granja web y asegurarme de que el el *uptime* de mi sitio web sea *casi del 100%* gracias a los dos servidores de paginas web.
