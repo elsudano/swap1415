@@ -52,8 +52,8 @@ http {<br />
 * **httpd.conf**
 <pre><code>
 ServerRoot "/etc/httpd"<br />
-Listen *:80<br />
-Include conf.modules.d/*.conf<br />
+Listen \*:80<br />
+Include conf.modules.d/\*.conf<br />
 User apache<br />
 Group apache<br />
 ServerAdmin root@localhost<br />
@@ -84,7 +84,7 @@ LogLevel warn<br />
 `<IfModule log_config_module><br />`
     LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined<br />
     LogFormat "%h %l %u %t \"%r\" %>s %b" common<br />
-    <IfModule logio_module><br />
+    `<IfModule logio_module><br />`
       LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio<br />
     `</IfModule>`<br />
     CustomLog "logs/access_log" combined<br />
