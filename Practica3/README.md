@@ -50,7 +50,7 @@ http {<br />
 </code></pre>
 
 * **httpd.conf**
-<pre><code>
+
 ServerRoot "/etc/httpd"<br />
 Listen \*:80<br />
 Include conf.modules.d/\*.conf<br />
@@ -108,7 +108,7 @@ AddDefaultCharset UTF-8<br />
 EnableSendfile on<br />
 IncludeOptional conf.d/*.conf<br />
 ServerTokens Minor<br />
-</code></pre>
+
 
 ### Conclusiones
 En esta practica he aprendido como de manera fácil y barata podemos montar nuestra granja web y asegurarme de que el el *uptime* de mi sitio web sea *casi del 100%* gracias a los dos servidores de paginas web.
