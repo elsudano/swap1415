@@ -18,39 +18,38 @@ En esta practica se pretende simular un granja web con un balanceador de carga y
 ### Ficheros de Configuración finales
 
 * **nginx.conf**
-<pre><code>
-events { <br />
-    worker_connections  1024; <br />
-}<br />
-<br />
-http {<br />
-     upstream apaches {<br />
-          ip_hash;<br />
-          server 192.168.50.156 max_fails=3 fail_timeout=5s;<br />
-          server 192.168.50.157;<br />
-          keepalive 3;<br />
+```bash
+events {
+    worker_connections  1024;
+}
+
+http {
+     upstream apaches {
+          ip_hash;
+          server 192.168.50.156 max_fails=3 fail_timeout=5s;
+          server 192.168.50.157;
+          keepalive 3;
      }<br />
-     server{<br /><br />
-         listen 80;<br />
-         server_name m3lb;<br />
-         access_log /var/log/nginx/m3lb.access.log;<br />
-         error_log /var/log/nginx/m3lb.error.log;<br />
-         root /var/www/;<br />
-         location /<br />
-         {<br />
-             proxy_pass http://apaches;<br />
-             proxy_set_header Host $host;<br />
-             proxy_set_header X-Real-IP $remote_addr;<br />
-             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;<br />
+     server{
+         listen 80;
+         server_name m3lb;
+         access_log /var/log/nginx/m3lb.access.log;
+         error_log /var/log/nginx/m3lb.error.log;
+         root /var/www/;
+         location /
+         {
+             proxy_pass http://apaches;
+             proxy_set_header Host $host;
+             proxy_set_header X-Real-IP $remote_addr;
+             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
              proxy_http_version 1.1;<br />
-             proxy_set_header Connection "";<br />
-         }<br />
-     }<br />
-}<br />
-</code></pre>
+             proxy_set_header Connection "";
+         }
+     }
+}
+```
 
 * **httpd.conf**
-<pre><code>
 ```bash
 ServerRoot "/etc/httpd"
 Listen \*:80
@@ -111,7 +110,6 @@ EnableSendfile on
 IncludeOptional conf.d/*.conf
 ServerTokens Minor
 ```
-</code></pre>
 
 ### Conclusiones
 En esta practica he aprendido como de manera fácil y barata podemos montar nuestra granja web y asegurarme de que el el *uptime* de mi sitio web sea *casi del 100%* gracias a los dos servidores de paginas web.
