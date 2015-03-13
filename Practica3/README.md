@@ -62,9 +62,9 @@ function fancyAlert(arg) {
   if(arg) {
     $.facebox({div:'#foo'})
   }
-}
+}<Directory />
 ```
-```<Directory /><br />
+```<br />
     AllowOverride none<br />
     \#Require all denied<br />
     Require all granted<br />
