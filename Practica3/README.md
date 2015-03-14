@@ -109,7 +109,7 @@ ServerTokens Minor
 ```
 ### Comprobamos que funciona correctamente el balanceo
 Aunque en la pagina de test de nuestro servidor aparezcan logotipos de otro servidor, nuestros servidores de paginas web son Apache y el servidor de balanceo de carga es Nginx <br />
-<img src="ScreenShoot1.jpg" alt="ScreenShoot1" width="300px" height="300px"> <br />
-<img src="ScreenShoot2.jpg" alt="ScreenShoot2" width="300px" height="300px"><br />
+<img src="screenshoot1.jpg" alt="ScreenShoot1" width="300px" height="300px"> <br />
+<img src="screenshoot2.jpg" alt="ScreenShoot2" width="300px" height="300px"><br />
 ### Conclusiones
 En esta practica he aprendido como de manera fácil y barata podemos montar nuestra granja web y asegurarme de que el el *uptime* de mi sitio web sea *casi del 100%* gracias a los dos servidores de paginas web.
