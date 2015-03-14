@@ -89,7 +89,7 @@ defaults
     timeout server          1m
     timeout http-keep-alive 10s
     timeout check           10s
-    maxconn                 256
+    maxconn                 32
 
 #---------------------------------------------------------------------
 # FrontEnd principal junto con los backends
@@ -103,6 +103,7 @@ frontend  httpd
 #---------------------------------------------------------------------
 backend apaches
     balance roundrobin
+    # balance 
     server  apache1 192.168.50.152:80 check
     server  apache2 192.168.50.153:80 check
 ```
