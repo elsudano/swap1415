@@ -14,6 +14,10 @@ En esta practica se pretende simular un granja web con un balanceador de carga y
 > Después clone la maquina resultado para poder tener las dos maquinas que me servirían las paginas web de mi granja, por supuesto tuve que realizar algunos cambios en la configuración de la segunda maquina para que no hubiera conflictos de IP ni de resolución de nombres. <br />
 > * Paso 4 <br />
 > Una vez que ya tenia las maquinas listas prepare una tercera maquina que sería la que nos serviría de balanceador de carga, en esta maquina instalé nginx y haproxy, con sus ficheros de configuración. <br />
+> * Paso 5 <br />
+> Active la configuración del balanceador de carga Nginx y realice varias capturas de pantalla para poder mostrar como funcionaba el balanceo de carga con esa configuración. <br />
+> * Paso 6 <br />
+> Deshabilite la configuración de Nginx y habilite la de HAProxy para poder realizar pruebas, como los resultados fueron los mismos no he incluido capturas de pantalla pero si he incluido los ficheros de configuración. <br />
 
 ### Ficheros de Configuración finales
 
@@ -110,6 +114,6 @@ ServerTokens Minor
 ### Comprobamos que funciona correctamente el balanceo
 Aunque en la pagina de test de nuestro servidor aparezcan logotipos de otro servidor, nuestros servidores de paginas web son Apache y el servidor de balanceo de carga es Nginx <br />
 <img src="screenshoot1.jpg" alt="ScreenShoot1"> <br />
-<img src="screenshoot2.jpg" alt="ScreenShoot2"><br />
+<img src="screenshoot2.jpg" alt="ScreenShoot2"> <br />
 ### Conclusiones
 En esta practica he aprendido como de manera fácil y barata podemos montar nuestra granja web y asegurarme de que el el *uptime* de mi sitio web sea *casi del 100%* gracias a los dos servidores de paginas web.
