@@ -15,9 +15,9 @@ En esta practica se pretende simular un granja web con un balanceador de carga y
 > * Paso 4 <br />
 > Una vez que ya tenia las maquinas listas prepare una tercera maquina que sería la que nos serviría de balanceador de carga, en esta maquina instalé nginx y haproxy, con sus ficheros de configuración. <br />
 > * Paso 5 <br />
-> Active la configuración del balanceador de carga Nginx y realice varias capturas de pantalla para poder mostrar como funcionaba el balanceo de carga con esa configuración. <br />
+> Habilité la configuración del balanceador de carga Nginx y realicé varias capturas de pantalla para poder mostrar como funcionaba el balanceo de carga con esa configuración. <br />
 > * Paso 6 <br />
-> Deshabilite la configuración de Nginx y habilite la de HAProxy para poder realizar pruebas, como los resultados fueron los mismos no he incluido capturas de pantalla pero si he incluido los ficheros de configuración. <br />
+> Deshabilité la configuración de Nginx y habilité la de HAProxy para poder realizar pruebas, como los resultados fueron los mismos no he incluido capturas de pantalla pero si he incluido los ficheros de configuración. <br />
 
 ### Ficheros de Configuración finales
 
