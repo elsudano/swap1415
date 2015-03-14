@@ -71,8 +71,7 @@ global
     stats socket /var/lib/haproxy/stats
 
 #---------------------------------------------------------------------
-# common defaults that all the 'listen' and 'backend' sections will
-# use if not designated in their block
+# Ajustes de configuración por defecto
 #---------------------------------------------------------------------
 defaults
     mode                    http
