@@ -52,8 +52,8 @@ http {
 * **httpd.conf** en los dos servidores
 ```bash
 ServerRoot "/etc/httpd"
-Listen \*:80
-Include conf.modules.d/\*.conf
+Listen *:80
+Include conf.modules.d/*.conf
 User apache
 Group apache
 ServerAdmin root@localhost
