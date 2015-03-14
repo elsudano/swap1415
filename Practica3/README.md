@@ -52,6 +52,61 @@ http {
      }
 }
 ```
+* **haproxy.cfg**
+```
+#---------------------------------------------------------------------
+# Ajustes Globales
+#---------------------------------------------------------------------
+global
+    log         127.0.0.1 local2
+
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     256
+    user        haproxy
+    group       haproxy
+    daemon
+
+    # turn on stats unix socket
+    stats socket /var/lib/haproxy/stats
+
+#---------------------------------------------------------------------
+# common defaults that all the 'listen' and 'backend' sections will
+# use if not designated in their block
+#---------------------------------------------------------------------
+defaults
+    mode                    http
+    log                     global
+    option                  httplog
+    option                  dontlognull
+    option http-server-close
+    option forwardfor       except 127.0.0.0/8
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout http-keep-alive 10s
+    timeout check           10s
+    maxconn                 256
+
+#---------------------------------------------------------------------
+# FrontEnd principal junto con los backends
+#---------------------------------------------------------------------
+frontend  httpd
+    bind *:80
+    default_backend              apaches
+
+#---------------------------------------------------------------------
+# Balanceador de dos apaches con algoritmo round robin
+#---------------------------------------------------------------------
+backend apaches
+    balance roundrobin
+    server  apache1 192.168.50.152:80 check
+    server  apache2 192.168.50.153:80 check
+```
 
 * **httpd.conf** en los dos servidores
 ```bash
