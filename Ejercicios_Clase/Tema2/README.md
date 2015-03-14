@@ -1,9 +1,9 @@
-Preguntas del Tema 1
+Preguntas del Tema 2
 ====================
 ### Objetivos
 
-En este primer tema lo que pretendemos es empezar a entender los conceptos de granja web y el por que siempre
-será mejor planificar los proyectos por muy pequeños que sean.
+En este segundo tema profundizaremos un poco mas sobre la escalabilidad y daremos las definiciones de lo que es la Disponibilidad, también se
+mostrara la manera de realizar los cálculos para que nuestra disponibilidad sea casi del 100%, osea 24x7.
 
 * **Pregunta 1**
 ¿Que es la Disponibilidad? <br />
