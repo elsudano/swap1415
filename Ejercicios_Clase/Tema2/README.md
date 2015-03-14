@@ -22,3 +22,12 @@ mostrara la manera de realizar los cálculos para que nuestra disponibilidad sea
   + D: Ninguna es correcta
   
   Respuesta: **A**
+
+* **Pregunta 3**
+¿Como se suele implementar la escalabilidad? <br />
+  + A: Se ponen mas servidores redundantes <br />
+  + B: Se intenta poner el mayor numero de servidores apilados en un mismo armario <br />
+  + C: A la hora de escalar las aplicaciones WEB se intenta intercalar los procesos <br />
+  + D: Ninguna es correcta
+  
+  Respuesta: **A**

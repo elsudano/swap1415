@@ -1,20 +1,33 @@
-Preguntas del Tema 1
+Preguntas del Tema 4
 ====================
 ### Objetivos
 
-En este primer tema lo que pretendemos es empezar a entender los conceptos de granja web y el por que siempre
-será mejor planificar los proyectos por muy pequeños que sean.
+En este tema ahondaremos un poco más en los servidores de balanceo de carga ya sea tanto software como hardware, y veremos el progreso
+y el por que, de como llegamos a ellos.
 
 * **Pregunta 1**
-¿Que es una granja WEB? <br />
-  + A: Un sitio donde se desarrollan páginas WEBs <br />
-  + B: El nombre común de Silicon Valey <br />
-  + C: Conjunto de servidores que sirven páginas WEBs <br />
-  + D: Ninguna es correcta
+¿Esta es la pregunta 1? <br />
+  + A: Respuesta A <br />
+  + B: Respuesta B <br />
+  + C: Respuesta C <br />
+  + D: Respuesta D <br />
+
+  Respuesta: **B** <br />
 
 * **Pregunta 2**
-¿Que es la escalabilidad? <br />
-  + A: Es la altitud máxima a la que puede trabajar un servidor WEB <br />
-  + B: Es la medida para saber cuantos servidores se pueden apilar uno encima de otro <br />
-  + C: Es la capacidad para dar soporte a un número creciente de usuarios <br />
-  + D: Ninguna es correcta
+¿Esta es la pregunta 2? <br />
+  + A: Respuesta A <br />
+  + B: Respuesta B <br />
+  + C: Respuesta C <br />
+  + D: Respuesta D <br />
+
+  Respuesta: **B** <br />
+
+* **Pregunta 3**
+¿Esta es la pregunta 3? <br />
+  + A: Respuesta A <br />
+  + B: Respuesta B <br />
+  + C: Respuesta C <br />
+  + D: Respuesta D <br />
+
+  Respuesta: **B** <br />
