@@ -1,9 +1,8 @@
-Preguntas del Tema 4
+Preguntas del Tema 6
 ====================
 ### Objetivos
 
-En este tema ahondaremos un poco más en los servidores de balanceo de carga ya sea tanto software como hardware, y veremos el progreso
-y el por que, de como llegamos a ellos.
+
 
 * **Pregunta 1**
 ¿Esta es la pregunta 1? <br />
