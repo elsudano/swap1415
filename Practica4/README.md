@@ -10,7 +10,7 @@ En esta practica vamos a comprobar el rendimiento que tiene nuestra granja web, 
 <br />
 
 ### Tablas de Valores
-|                                              SERVIDOR WEB                                           |
+|                      |                    |    SERVIDOR WEB   |                     |               |
 |----------------------|--------------------|---------|---------|---------------------|---------------| 
 |                      |           Tiempo de Conexión           |       Tiempo de Respuesta           | 
 |                      | Mínimo             | Media   | Máximo  | Respuesta           | Transferencia | 
