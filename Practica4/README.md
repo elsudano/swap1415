@@ -10,9 +10,9 @@ En esta practica vamos a comprobar el rendimiento que tiene nuestra granja web, 
 <br />
 
 ### Tablas de Valores
-|                      |                    |    SERVIDOR WEB   |                     |               |
+|                      |    SERVIDOR WEB    |         |         |                     |               |
 |----------------------|--------------------|---------|---------|---------------------|---------------| 
-|                      |           Tiempo de Conexión           |       Tiempo de Respuesta           | 
+|                      | **Tiempo de Conexión** |         |         | **Tiempo de Respuesta** |               | 
 |                      | Mínimo             | Media   | Máximo  | Respuesta           | Transferencia | 
 | Medición 1:          | 0,50               | 1,00    | 13,10   | 0,60                | 0,20          | 
 | Medición 2:          | 0,50               | 0,90    | 16,00   | 0,50                | 0,20          | 
@@ -26,23 +26,7 @@ En esta practica vamos a comprobar el rendimiento que tiene nuestra granja web, 
 | Medición 10:         | 0,60               | 0,90    | 15,00   | 0,50                | 0,20          | 
 | Media:               | 0,55               | 7,84    | 23,77   | 0,52                | 0,20          | 
 | Desviación:          | 0,05               | 21,95   | 27,00   | 0,04                | 0,00          | 
-|                      |                    |         |         |                     |               | 
-|                                  BALANCEADOR DE CARGA                                               | 
-|                      |             Tiempo de Conexión         |        Tiempo de Respuesta          | 
-|                      | Mínimo             | Media   | Máximo  | Respuesta           | Transferencia | 
-| Medición 1:          |                    |         |         |                     |               | 
-| Medición 2:          |                    |         |         |                     |               | 
-| Medición 3:          |                    |         |         |                     |               | 
-| Medición 4:          |                    |         |         |                     |               | 
-| Medición 5:          |                    |         |         |                     |               | 
-| Medición 6:          |                    |         |         |                     |               | 
-| Medición 7:          |                    |         |         |                     |               | 
-| Medición 8:          |                    |         |         |                     |               | 
-| Medición 9:          |                    |         |         |                     |               | 
-| Medición 10:         |                    |         |         |                     |               | 
-| Media:               |                    |         |         |                     |               | 
-| Desviación:          |                    |         |         |                     |               |
-|----------------------|--------------------|---------|---------|---------------------|---------------|
+|                      |                    |         |         |                     |               |
 
 ### Gráficas
 Las gráficas que se muestran a continuación llevan el mismo orden que las tablas anteriores <br />
