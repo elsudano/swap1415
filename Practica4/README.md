@@ -78,7 +78,10 @@ En esta practica vamos a comprobar el rendimiento que tiene nuestra granja web, 
 
 ### Gráficas
 Las gráficas que se muestran a continuación llevan el mismo orden que las tablas anteriores <br />
+<img src="screenshoot1.png" alt="ScreenShoot1"> <br />
+<img src="screenshoot2.png" alt="ScreenShoot2"> <br />
 <img src="screenshoot3.png" alt="ScreenShoot3"> <br />
+<img src="screenshoot4.png" alt="ScreenShoot4"> <br />
 
 ### Conclusiones
 Incluso con servidores virtuales si la granja tiene una buena infraestructura de red, puede dar un servicio muy aceptable en el momento que se introduce el concepto de balanceo de carga.
