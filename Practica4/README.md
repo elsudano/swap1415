@@ -10,9 +10,8 @@ En esta practica vamos a comprobar el rendimiento que tiene nuestra granja web, 
 <br />
 
 ### Tablas de Valores
-
+|                                              SERVIDOR WEB                                           |
 |----------------------|--------------------|---------|---------|---------------------|---------------| 
-|                      |                    SERVIDOR WEB                              |               | 
 |                      |           Tiempo de Conexión           |       Tiempo de Respuesta           | 
 |                      | Mínimo             | Media   | Máximo  | Respuesta           | Transferencia | 
 | Medición 1:          | 0,50               | 1,00    | 13,10   | 0,60                | 0,20          | 
