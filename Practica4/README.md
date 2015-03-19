@@ -58,7 +58,7 @@ En esta practica vamos a comprobar el rendimiento que tiene nuestra granja web, 
 | Media:                                       | 1,07                  | 0,00            | 0,95                         | 5,350             | 
 | Desviación:                                  | 0,147                 | 0,00            | 0,11                         | 0,733             | 
 
-|    **HTTPERF**       |  **SERVIDOR WEB**  |         |         |                     |               |
+|    **SERVIDOR WEB - HTTPERF** |           |         |         |                     |               |
 |----------------------|--------------------|---------|---------|---------------------|---------------| 
 |              | **Tiempo de Conexión**     |         |         | **Tiempo de Respuesta** |           | 
 |                      | Mínimo             | Media   | Máximo  | Respuesta           | Transferencia | 
