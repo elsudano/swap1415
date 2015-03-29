@@ -111,7 +111,7 @@ Lo que vamos a intentar ahora es configurar los dos servidores para que actúen 
 Ya hemos visto que se pueden hacer copia de los datos entre servidores, de forma rudimentaria, ahora vamos a realizarlo de manera un poco mas profesional y sin tener que programar tareas para que el replicado de datos se lleve a cabo, sino que se guardaran los datos en los dos servidores simultáneamente.<br />
 La metodología para configurar de esta manera los servidores es bastante sencilla, lo que se hace es configurar un servidor primero como maestro DB1 y el segundo se configura como esclavo DB2, a continuación se realiza la misma operación pero en el otros sentido, así de esa manera, si cualquiera de los dos servidores se estropeara, bastaría con sustituirlo por una maquina nueva y ponerle la misma IP que el servidor que se ha estropeado, de esa manera, una vez configurado correctamente el nuevo servidor se auto replicarían los datos de un servidor a otro.<br />
 
-** Fichero de configuración en DB1 **
+**Fichero de configuración en DB1**
 ```bash
 [usuario@DB1 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
@@ -138,8 +138,9 @@ Aúnque no hace falta tambien utilizaremos los comandos para bloquear la lectura
 | mariadb-bin.000001 |      245 |              |                  |
 +--------------------+----------+--------------+------------------+ 
 ```
-Bien hasta aquí la primera parte de la configuración del primer servidor maestro, ahora tenemos que continuar con la primera parte del segundo servidor maestro DB2 y para ello cambiaremos la configuración tal y como se muestra a continuación.
-** Fichero de configuración en DB2 **
+Bien hasta aquí la primera parte de la configuración del primer servidor maestro, ahora tenemos que continuar con la primera parte del segundo servidor maestro DB2 y para ello cambiaremos la configuración tal y como se muestra a continuación.<br />
+
+**Fichero de configuración en DB2**
 ```bash
 [usuario@DB2 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
