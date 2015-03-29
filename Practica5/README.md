@@ -141,7 +141,7 @@ Aúnque no hace falta tambien utilizaremos los comandos para bloquear la lectura
 Bien hasta aquí la primera parte de la configuración del primer servidor maestro, ahora tenemos que continuar con la primera parte del segundo servidor maestro DB2 y para ello cambiaremos la configuración tal y como se muestra a continuación.<br />
 
 **Fichero de configuración en DB2**
-```bash
+<pre><code>
 [usuario@DB2 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
 server-id               = 2 # identificador del servidor
@@ -158,14 +158,12 @@ replicate-do-db         = contactos # solo se replicara esta base de datos
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables with read lock"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="show master status"
-<pre>
 +--------------------+----------+--------------+------------------+
 | File               | Position | Binlog_Do_DB | Binlog_Ignore_DB |
 +--------------------+----------+--------------+------------------+
 | <b>mariadb-bin.000002</b> |      245 |              |                  |
 +--------------------+----------+--------------+------------------+
-</pre>
-```
+</code></pre>
 Si nos fijamos en este punto nos damos cuenta que hemos cambiado dos parametros en la configuración y el servidor a cambiado el nombre del fichero de logs binarios, ahora bien como en este servidor ya si podemos utilizar el otro como servidor esclavo, seguimos con la configuracion.
 ```bash
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
