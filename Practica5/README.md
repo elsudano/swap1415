@@ -165,20 +165,83 @@ replicate-do-db         = contactos # solo se replicara esta base de datos
 +--------------------+----------+--------------+------------------+
 </code></pre>
 Si nos fijamos en este punto nos damos cuenta que hemos cambiado dos parametros en la configuración y el servidor a cambiado el nombre del fichero de logs binarios, ahora bien como en este servidor ya si podemos utilizar el otro como servidor esclavo, seguimos con la configuracion.
-```bash
+<pre><code>
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
-[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='**192.168.50.159**', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='<b>192.168.50.159</b>', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="start slave"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="unlock tables"
-```
-Y Ahora como el servidor maestro DB2 ya está listo seguiremos con la configuración del primero para configurarlo como esclavo también
-```bash
+</code></pre>
+Y Ahora como el servidor maestro DB2 ya está listo seguiremos con la configuración del primero, para configurarlo como esclavo también
+<pre><code>
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
-[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='**192.168.50.159**', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='<b>192.168.50.160</b>', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='<b>mariadb-bin.000002</b>', MASTER_LOG_POS=245"
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="start slave"
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="unlock tables"
-show slave status;
+</code></pre>
+Y para terminar de comprobar que esta todo correctamente configurado podemos utilizar el siguiente comando en ambos servidores
+```bash
+mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="show slave status\G"
 ```
+El resultado tendra que ser algo parecido a esto en ambos servidores
+
+```bash
+               Slave_IO_State: Waiting for master to send event
+                  Master_Host: 192.168.50.159
+                  Master_User: replicauser
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mariadb-bin.000004
+          Read_Master_Log_Pos: 245
+               Relay_Log_File: relay-bin.000007
+                Relay_Log_Pos: 531
+        Relay_Master_Log_File: mariadb-bin.000004
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB: contactos
+          Replicate_Ignore_DB: 
+           Replicate_Do_Table: 
+       Replicate_Ignore_Table: 
+      Replicate_Wild_Do_Table: 
+  Replicate_Wild_Ignore_Table: 
+                   Last_Errno: 0
+                   Last_Error: 
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 245
+              Relay_Log_Space: 1105
+              Until_Condition: None
+               Until_Log_File: 
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File: 
+           Master_SSL_CA_Path: 
+              Master_SSL_Cert: 
+            Master_SSL_Cipher: 
+               Master_SSL_Key: 
+        Seconds_Behind_Master: 0
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error: 
+               Last_SQL_Errno: 0
+               Last_SQL_Error: 
+  Replicate_Ignore_Server_Ids: 
+             Master_Server_Id: 1
+```
+Con esto damos por finalizada la configuración en ambos servidores, y si queremos comprobar que la replicación funciona correctamente lo unico que tenemos que hacer es crear un nuevo registro en la tabla datos de nuestra base de datos contactos y ver como, ejecutando la sentencia en un solo servidor podemos ver los datos en ambos servidores.
+
+```bash
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="insert into datos(nombre,tlf) values ("Prueba",958147258)"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="select * from datos"
++---------+-----------+
+| nombre  | tlf       |
++---------+-----------+
+| pepe    | 958123456 |
+| juan    | 958654321 |
+| carlos  | 958987654 |
+| pedro   | 958456789 |
+| Prueba1 | 958147258 |
++---------+-----------+
+```
+
 ### Bibliografia
 > Página web de MariaDB: https://mariadb.com/kb/en/mariadb/replication-cluster-multi-master/
 > Comandos mas usados: https://mariadb.com/kb/en/mariadb/replication-commands/
