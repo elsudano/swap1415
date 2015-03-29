@@ -3,7 +3,7 @@ Practica 5 <img src="basedatos.jpg" alt="Logotipo" width="50px" height="50px">
 *Replicando servidores completos de Base de Datos*
 
 ### Objetivos
-En esta practica lo que se pretende es conseguir crear una copia casi exacta de un servidor de base de datos, pero tambien se pretende que el servicio no se detenga mientras sucede esto, es decir, que podamos tener la información disponible en todo momento mientras tenemos la seguridad de que nuestros datos estan a salvo en otro servidor identico.
+En esta practica lo que se pretende es conseguir crear una copia casi exacta de un servidor de base de datos, pero también se pretende que el servicio no se detenga mientras sucede esto, es decir, que podamos tener la información disponible en todo momento mientras tenemos la seguridad de que nuestros datos están a salvo en otro servidor idéntico.
 
 ### Pasos realizados
 > * Paso 1 <br />
@@ -31,7 +31,7 @@ echo .  Primero creamos la Base de datos
 echo .  mysql --host=localhost --user=root --password=contraseña --execute=\"CREATE DATABASE IF NOT EXISTS contactos\"
 echo .
 echo .
-echo . Despues miramos las tablas de la base de datos
+echo . Después miramos las tablas de la base de datos
 echo . mysql --host=localhost --user=root --password=contraseña --execute=\"show tables\" --database=\"contactos\"
 echo .
 echo .
@@ -49,7 +49,7 @@ echo . Ahora vamos a insertar algunos registros para poder realizar las pruebas
 echo . mysql --host=localhost --user=root --password=contraseña --execute=\"insert into datos\(nombre,tlf\) values \(\"pepe\",95834987\)\" --database=\"contactos\"
 echo . repetiremos esta operación tantas veces como registros queramos crear
 echo .
-echo . Y después de haber metido los registros miramos si estan correctamente insertados
+echo . Y después de haber metido los registros miramos si están correctamente insertados
 echo . mysql --host=localhost --user=root --password=contraseña --execute=\"select \* from datos\" --database=\"contactos\"
 echo . como vemos a continuación tenemos 4 registros insertados
 echo .
@@ -59,7 +59,7 @@ echo . mysql --host=localhost --user=root --password=contraseña --execute=\"des
 echo .
 echo . Por ultimo damos la posibilidad de borrar la base de datos
 echo .
-read -p " ¿ quiere borrar la BD contactos ? " -n 1 -r
+read -p " ¿ quiere borrar la BD contactos ? " -n 1 -r -t 3
 echo
 ```
 
@@ -71,7 +71,7 @@ echo .  Para poder crear la copia de seguridad tenemos que asegurarnos que no se
 echo .  mysql --host=localhost --user=root --password=contraseña --database=\"contactos\" --execute=\"FLUSH TABLES WITH READ LOCK\"
 echo .
 echo .
-echo . Ahora realizamos la copia de seguridad y la guardamos en un fichero con extención .sql
+echo . Ahora realizamos la copia de seguridad y la guardamos en un fichero con extensión .sql
 echo . mysqldump --host=localhost --user=root --password=contraseña contactos datos \> /home/usuario/copia_seguridad_db1.sql
 echo .
 echo .
@@ -80,7 +80,7 @@ echo . mysql --host=localhost --user=root --password=contraseña --database=\"co
 echo .
 echo . Por ultimo damos la posibilidad de copiar la copia al segundo servidor.
 echo .
-read -p " ¿ quiere copiar el fichero al segundo servidor DB2 ? " -n 1 -r
+read -p " ¿ quiere copiar el fichero al segundo servidor DB2 ? " -n 1 -r -t 3
 echo
 ```
 **restaturar_copia.sh**
@@ -100,9 +100,14 @@ echo . mysql --host=localhost --user=root --password=contraseña --database=\"co
 echo .
 echo . Por ultimo damos la posibilidad de borrar el fichero de copia de seguridad.
 echo .
-read -p " ¿ quiere borrar copia_seguridad_db1.sql ? " -n 1 -r
+read -p " ¿ quiere borrar copia_seguridad_db1.sql ? " -n 1 -r -t 3
 echo
 ```
+### Configuración Manual
+Hasta aquí hemos conseguido que la replicación de datos sea consistente pero bastante primitiva, puesto que necesitamos de tareas programadas para que se realice el proceso o bien a un técnico que se encargue de monitorizar la copia de datos entre los dos servidores. <br />
+Lo que vamos a intentar ahora es configurar los dos servidores para que actúen como maestro/esclavo, (DB1/DB2), para que la replica de datos sea casi automática. <br />
+
+
 ### Conclusiones
 Incluso con servidores virtuales si la granja tiene una buena infraestructura de red, puede dar un servicio muy aceptable en el momento que se introduce el concepto de balanceo de carga.
 También quiero indicar que después de haber probado los tres programas de test para la granja web he de decir que el que mas recursos consume realizando los test es el httperf,
