@@ -116,12 +116,12 @@ La metodología para configurar de esta manera los servidores es bastante sencil
 [usuario@DB1 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
 server-id               = 1 # identificador del servidor
-report_host             = 192.168.50.159 # ip del servidor cuando actua como esclavo
+report_host             = 192.168.50.159 # ip del servidor cuando actúa como esclavo
 log_bin                 = /var/log/mariadb/mariadb-bin 
 log_bin_index           = /var/log/mariadb/mariadb-bin.index
 relay_log               = /var/log/mariadb/relay-bin
 relay_log_index         = /var/log/mariadb/relay-bin.index
-replicate-do-db         = contactos # solo se replicara esta base de datos
+replicate-do-db         = contactos # solo se replicará esta base de datos
 ...
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="create user 'replicauser'@'%' identified by 'contraseña'"
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="grant replication slave on *.* to 'replicauser'@'%'"
@@ -145,12 +145,12 @@ Bien hasta aquí la primera parte de la configuración del primer servidor maest
 [usuario@DB2 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
 server-id               = <b>2</b> # identificador del servidor
-report_host             = <b>192.168.50.160</b> # ip del servidor cuando actua como esclavo
+report_host             = <b>192.168.50.160</b> # ip del servidor cuando actúa como esclavo
 log_bin                 = /var/log/mariadb/mariadb-bin 
 log_bin_index           = /var/log/mariadb/mariadb-bin.index
 relay_log               = /var/log/mariadb/relay-bin
 relay_log_index         = /var/log/mariadb/relay-bin.index
-replicate-do-db         = contactos # solo se replicara esta base de datos
+replicate-do-db         = contactos # solo se replicará esta base de datos
 ...
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="create user 'replicauser'@'%' identified by 'contraseña'"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="grant replication slave on *.* to 'replicauser'@'%'"
@@ -164,7 +164,7 @@ replicate-do-db         = contactos # solo se replicara esta base de datos
 | <b>mariadb-bin.000002</b> |      245 |              |                  |
 +--------------------+----------+--------------+------------------+
 </code></pre>
-Si nos fijamos en este punto nos damos cuenta que hemos cambiado dos parametros en la configuración y el servidor a cambiado el nombre del fichero de logs binarios, ahora bien como en este servidor ya si podemos utilizar el otro como servidor esclavo, seguimos con la configuracion.
+Si nos fijamos en este punto nos damos cuenta que hemos cambiado dos parametros en la configuración y el servidor a cambiado el nombre del fichero de logs binarios, ahora bien como en este servidor ya si podemos utilizar el otro como servidor esclavo, seguimos con la configuración.
 <pre><code>
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='<b>192.168.50.159</b>', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
@@ -178,11 +178,11 @@ Y Ahora como el servidor maestro DB2 ya está listo seguiremos con la configurac
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="start slave"
 [usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="unlock tables"
 </code></pre>
-Y para terminar de comprobar que esta todo correctamente configurado podemos utilizar el siguiente comando en ambos servidores
+Y para terminar de comprobar que esta todo correctamente configurado podemos utilizar el siguiente comando en ambos servidores.
 ```bash
 mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="show slave status\G"
 ```
-El resultado tendra que ser algo parecido a esto en ambos servidores
+El resultado tendrá que ser algo parecido a esto en ambos servidores
 
 ```bash
                Slave_IO_State: Waiting for master to send event
@@ -226,7 +226,7 @@ Master_SSL_Verify_Server_Cert: No
   Replicate_Ignore_Server_Ids: 
              Master_Server_Id: 1
 ```
-Con esto damos por finalizada la configuración en ambos servidores, y si queremos comprobar que la replicación funciona correctamente lo unico que tenemos que hacer es crear un nuevo registro en la tabla datos de nuestra base de datos contactos y ver como, ejecutando la sentencia en un solo servidor podemos ver los datos en ambos servidores.
+Con esto damos por finalizada la configuración en ambos servidores, y si queremos comprobar que la replicación funciona correctamente lo único que tenemos que hacer es crear un nuevo registro en la tabla datos de nuestra base de datos contactos y ver como, ejecutando la sentencia en un solo servidor podemos ver los datos en ambos servidores.
 
 ```bash
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="insert into datos(nombre,tlf) values ("Prueba",958147258)"
@@ -243,9 +243,9 @@ Con esto damos por finalizada la configuración en ambos servidores, y si querem
 ```
 
 ### Bibliografia
-> Página web de MariaDB: https://mariadb.com/kb/en/mariadb/replication-cluster-multi-master/
-> Comandos mas usados: https://mariadb.com/kb/en/mariadb/replication-commands/
-> Parametros de configuración de replica: https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/ 
+> Página web de MariaDB: https://mariadb.com/kb/en/mariadb/replication-cluster-multi-master/ <br />
+> Comandos mas usados: https://mariadb.com/kb/en/mariadb/replication-commands/ <br />
+> Parametros de configuración de replica: https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/ <br />
 
 ### Conclusiones
 Bueno la primera parte de la practica, se supone que es mas fácil por que es algo que ya hemos visto en las anteriores, aun así hay que tener cuidado a la hora de utilizar los comandos de copia entre servidores para clonar las configuraciones de ambos por que, si no vamos con cuidado podemos copiar la configuración mala, en el servidor con la configuración buena.<br />
