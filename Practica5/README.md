@@ -9,14 +9,19 @@ En esta practica lo que se pretende es conseguir crear una copia casi exacta de 
 > * Paso 1 <br />
 > La primera parte de la practica es configurar correctamente el servidor MySQL <br />
 > * Paso 2 <br />
-> Preparamos las diferentes tablas que nos van a hacer falta para poder tomar las mediciones, ya que hay 9 escenarios diferentes de los cuales tenemos que tomar medidas. <br />
+> Para que sea mas fácil de gestionar la base de datos he instalado Apache y phpMyAdmin para la comprobación de las sentencias ejecutadas desde la consola. <br />
 > * Paso 3 <br />
-> Para hacernos una idea de lo que hay que apuntar en las tablas hacemos unas pruebas con los 3 programas que utilizaremos para realizar las mediciones y miramos los parámetros que nos devuelven después de ejecutarlos y esos serás los que pongamos en las tablas. <br />
+> Para no tener que preocuparme de la configuración de estos dos servicios instalados en los dos servidores, creo una tarea programada en el servidor "copia" DB2 que se encarga de tener sincronizada la configuración, de ambos servicios. <br />
 > * Paso 4 <br />
-> Pasamos ha realizar la batería de los diferentes test que necesitamos. Seguiremos el orden AB, HTTPERF, OPENWEBLOAD <br />
+> Creo los scripts necesarios para comprobar que todos los comandos se pueden realizar sin problemas, entre los dos servidores, de esa manera me aseguro tener los datos preparados para poder ejecutarlos a mano. <br />
 > * Paso 5 <br />
-> Por último generamos las gráficas resultantes de las mediciones realizadas. <br />
+> . <br />
 
+### Scripts Adicionales
+Los siguientes scripts, sirven de ayuda a la gestión de los servidores replicados, se ha procurado crear los scripts necesarios tanto para la creación desde cero de las bases de datos, las tablas y los datos necesarios para la realización de la practica. <br />
+ * El primero de todos se encarga de crear la base de datos, la tabla y los registros necesarios para realizar la practica. <br />
+ * El segundo se encarga de realizar una copia de seguridad de la base de datos que hemos creado antes. <br />
+ * Por último el tercero es el encargado de restaurar esa copia de seguridad en el segundo servidor (DB2). <br />
 ```bash
 #!/bin/bash
 echo .
