@@ -144,8 +144,8 @@ Bien hasta aquí la primera parte de la configuración del primer servidor maest
 <pre><code>
 [usuario@DB2 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
-server-id               = 2 # identificador del servidor
-report_host             = 192.168.50.160 # ip del servidor cuando actua como esclavo
+server-id               = <b>2</b> # identificador del servidor
+report_host             = <b>192.168.50.160</b> # ip del servidor cuando actua como esclavo
 log_bin                 = /var/log/mariadb/mariadb-bin 
 log_bin_index           = /var/log/mariadb/mariadb-bin.index
 relay_log               = /var/log/mariadb/relay-bin
