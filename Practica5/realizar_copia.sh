@@ -16,7 +16,7 @@ echo .
 mysql --host=localhost --user=root --password=p1tr3l1 --database="contactos" --execute="UNLOCK TABLES"
 echo . Por ultimo damos la posibilidad de copiar la copia al segundo servidor.
 echo .
-read -p " ¿ quiere copiar el fichero al segundo servidor DB2 ? " -n 1 -r
+read -p " ¿ quiere copiar el fichero al segundo servidor DB2 ? " -n 1 -r -t 3
 echo
 if [[ ! $REPLY =~ ^[YySs]$ ]]
 then

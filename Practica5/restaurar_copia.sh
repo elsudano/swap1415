@@ -16,14 +16,14 @@ echo .
 mysql --host=localhost --user=root --password=p1tr3l1 --database="contactos" --execute="select * from datos" contactos
 echo . Por ultimo damos la posibilidad de borrar el fichero de copia de seguridad.
 echo .
-read -p " ¿ quiere borrar copia_seguridad_db1.sql ? " -n 1 -r
+read -p " ¿ quiere borrar copia_seguridad_db1.sql ? " -n 1 -r -t 3
 echo
 if [[ ! $REPLY =~ ^[YySs]$ ]]
 then
     exit 1
 fi
 rm -f /home/usuario/copia_seguridad_db1.sql
-read -p " ¿ Quiere borrar la base de datos contactos ? " -n 1 -r
+read -p " ¿ Quiere borrar la base de datos contactos ? " -n 1 -r -t 3
 echo
 if [[ ! $REPLY =~ ^[YySs]$ ]]
 then

@@ -42,11 +42,11 @@ echo .
 mysql --host=localhost --user=root --password=p1tr3l1 --execute="describe datos" --database="contactos"
 echo . Por ultimo damos la posibilidad de borrar la base de datos
 echo .
-read -p " ¿ quiere borrar la BD contactos ? " -n 1 -r
+read -p " ¿ quiere borrar la BD contactos ? " -n 1 -r -t 3
 echo
 if [[ ! $REPLY =~ ^[YySs]$ ]]
 then
-    read -p " ¿ quiere borrar la TABLA datos ? " -n 1 -r
+    read -p " ¿ quiere borrar la TABLA datos ? " -n 1 -r -t 3
 	echo
 	if [[ ! $REPLY =~ ^[YySs]$ ]]
 	then

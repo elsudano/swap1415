@@ -23,7 +23,7 @@ Los siguientes scripts, sirven de ayuda a la gestión de los servidores replicad
  * El segundo se encarga de realizar una copia de seguridad de la base de datos que hemos creado antes en DB1 y copiarlo al segundo servidor. <br />
  * Por último el tercero es el encargado de restaurar esa copia de seguridad en el segundo servidor (DB2) y borrar el fichero de copia. <br />
 
-* **config_manual.sh**
+**config_manual.sh**
 ```bash
 #!/bin/bash
 echo .
@@ -63,7 +63,7 @@ read -p " ¿ quiere borrar la BD contactos ? " -n 1 -r
 echo
 ```
 
-* **realizar_copia.sh**
+**realizar_copia.sh**
 ```bash
 #!/bin/bash
 echo .
@@ -83,7 +83,7 @@ echo .
 read -p " ¿ quiere copiar el fichero al segundo servidor DB2 ? " -n 1 -r
 echo
 ```
-* **restaturar_copia.sh**
+**restaturar_copia.sh**
 ```bash
 #!/bin/bash
 echo .
