@@ -107,8 +107,82 @@ echo
 Hasta aquí hemos conseguido que la replicación de datos sea consistente pero bastante primitiva, puesto que necesitamos de tareas programadas para que se realice el proceso o bien a un técnico que se encargue de monitorizar la copia de datos entre los dos servidores. <br />
 Lo que vamos a intentar ahora es configurar los dos servidores para que actúen como maestro/esclavo, (DB1/DB2), para que la replica de datos sea casi automática. <br />
 
+### Configuración Maestro/Maestro
+Ya hemos visto que se pueden hacer copia de los datos entre servidores, de forma rudimentaria, ahora vamos a realizarlo de manera un poco mas profesional y sin tener que programar tareas para que el replicado de datos se lleve a cabo, sino que se guardaran los datos en los dos servidores simultáneamente.<br />
+La metodología para configurar de esta manera los servidores es bastante sencilla, lo que se hace es configurar un servidor primero como maestro DB1 y el segundo se configura como esclavo DB2, a continuación se realiza la misma operación pero en el otros sentido, así de esa manera, si cualquiera de los dos servidores se estropeara, bastaría con sustituirlo por una maquina nueva y ponerle la misma IP que el servidor que se ha estropeado, de esa manera, una vez configurado correctamente el nuevo servidor se auto replicarían los datos de un servidor a otro.<br />
+
+** Fichero de configuración en DB1 **
+```bash
+[usuario@DB1 /]# cat /etc/my.cnf
+# bind-address          = 127.0.0.1
+server-id               = 1 # identificador del servidor
+report_host             = 192.168.50.159 # ip del servidor cuando actua como esclavo
+log_bin                 = /var/log/mariadb/mariadb-bin 
+log_bin_index           = /var/log/mariadb/mariadb-bin.index
+relay_log               = /var/log/mariadb/relay-bin
+relay_log_index         = /var/log/mariadb/relay-bin.index
+replicate-do-db         = contactos # solo se replicara esta base de datos
+...
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="create user 'replicauser'@'%' identified by 'contraseña'"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="grant replication slave on *.* to 'replicauser'@'%'"
+```
+Aúnque no hace falta tambien utilizaremos los comandos para bloquear la lectura y escritura de las tablas mientras hacemos la siguiente operación para evitar que podamos perder algún dato, mientras terminamos de configurarlo todo.
+```bash
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush privileges"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables with read lock"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="show master status"
++--------------------+----------+--------------+------------------+
+| File               | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++--------------------+----------+--------------+------------------+
+| mariadb-bin.000001 |      245 |              |                  |
++--------------------+----------+--------------+------------------+ 
+```
+Bien hasta aquí la primera parte de la configuración del primer servidor maestro, ahora tenemos que continuar con la primera parte del segundo servidor maestro DB2 y para ello cambiaremos la configuración tal y como se muestra a continuación.
+** Fichero de configuración en DB2 **
+```bash
+[usuario@DB2 /]# cat /etc/my.cnf
+# bind-address          = 127.0.0.1
+server-id               = **2** # identificador del servidor
+report_host             = **192.168.50.160** # ip del servidor cuando actua como esclavo
+log_bin                 = /var/log/mariadb/mariadb-bin 
+log_bin_index           = /var/log/mariadb/mariadb-bin.index
+relay_log               = /var/log/mariadb/relay-bin
+relay_log_index         = /var/log/mariadb/relay-bin.index
+replicate-do-db         = contactos # solo se replicara esta base de datos
+...
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="create user 'replicauser'@'%' identified by 'contraseña'"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="grant replication slave on *.* to 'replicauser'@'%'"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush privileges"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables with read lock"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="show master status"
++--------------------+----------+--------------+------------------+
+| File               | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++--------------------+----------+--------------+------------------+
+| **mariadb-bin.000002** |      245 |              |                  |
++--------------------+----------+--------------+------------------+
+```
+Si nos fijamos en este punto nos damos cuenta que hemos cambiado dos parametros en la configuración y el servidor a cambiado el nombre del fichero de logs binarios, ahora bien como en este servidor ya si podemos utilizar el otro como servidor esclavo, seguimos con la configuracion.
+```bash
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='**192.168.50.159**', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="start slave"
+[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="unlock tables"
+```
+Y Ahora como el servidor maestro DB2 ya está listo seguiremos con la configuración del primero para configurarlo como esclavo también
+```bash
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='**192.168.50.159**', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="start slave"
+[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="unlock tables"
+show slave status;
+```
+### Bibliografia
+> Página web de MariaDB: https://mariadb.com/kb/en/mariadb/replication-cluster-multi-master/
+> Comandos mas usados: https://mariadb.com/kb/en/mariadb/replication-commands/
+> Parametros de configuración de replica: https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/ 
 
 ### Conclusiones
-Incluso con servidores virtuales si la granja tiene una buena infraestructura de red, puede dar un servicio muy aceptable en el momento que se introduce el concepto de balanceo de carga.
-También quiero indicar que después de haber probado los tres programas de test para la granja web he de decir que el que mas recursos consume realizando los test es el httperf,
-y la verdad que los resultados que devuelve no son muy útiles
+Bueno la primera parte de la practica, se supone que es mas fácil por que es algo que ya hemos visto en las anteriores, aun así hay que tener cuidado a la hora de utilizar los comandos de copia entre servidores para clonar las configuraciones de ambos por que, si no vamos con cuidado podemos copiar la configuración mala, en el servidor con la configuración buena.<br />
+Aparte de eso es bastante sencillo poder crear una copia del servidor completo por si al maestro le sucediera algo. Después la segunda parte de la practica se complica un poco mas, pero esta claro que es la configuración que tenemos que realizar para cuando tenemos servidores en producción, puesto que de esta forma no bloqueamos la inserción de datos mientras estamos realizando una copia de seguridad en el otro servidor, pero claro que esto también tiene la pega, de que si nos equivocamos, y borramos registros sin querer hacerlo, también se borran en el otros servidor, por lo tanto hay que tener claro que aunque tengamos, replicados los datos para posibles contingencias frente a fallos, también hay que realizar copias de seguridad programadas.
