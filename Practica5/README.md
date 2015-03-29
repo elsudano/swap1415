@@ -144,8 +144,8 @@ Bien hasta aquí la primera parte de la configuración del primer servidor maest
 ```bash
 [usuario@DB2 /]# cat /etc/my.cnf
 # bind-address          = 127.0.0.1
-server-id               = **2** # identificador del servidor
-report_host             = **192.168.50.160** # ip del servidor cuando actua como esclavo
+server-id               = 2 # identificador del servidor
+report_host             = 192.168.50.160 # ip del servidor cuando actua como esclavo
 log_bin                 = /var/log/mariadb/mariadb-bin 
 log_bin_index           = /var/log/mariadb/mariadb-bin.index
 relay_log               = /var/log/mariadb/relay-bin
@@ -158,11 +158,13 @@ replicate-do-db         = contactos # solo se replicara esta base de datos
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="flush tables with read lock"
 [usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="show master status"
+<pre>
 +--------------------+----------+--------------+------------------+
 | File               | Position | Binlog_Do_DB | Binlog_Ignore_DB |
 +--------------------+----------+--------------+------------------+
-| **mariadb-bin.000002** |      245 |              |                  |
+| <b>mariadb-bin.000002</b> |      245 |              |                  |
 +--------------------+----------+--------------+------------------+
+</pre>
 ```
 Si nos fijamos en este punto nos damos cuenta que hemos cambiado dos parametros en la configuración y el servidor a cambiado el nombre del fichero de logs binarios, ahora bien como en este servidor ya si podemos utilizar el otro como servidor esclavo, seguimos con la configuracion.
 ```bash
