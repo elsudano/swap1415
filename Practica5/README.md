@@ -242,7 +242,7 @@ Con esto damos por finalizada la configuración en ambos servidores, y si querem
 +---------+-----------+
 ```
 
-### Bibliografia
+### Bibliografía
 > Página web de MariaDB: https://mariadb.com/kb/en/mariadb/replication-cluster-multi-master/ <br />
 > Comandos mas usados: https://mariadb.com/kb/en/mariadb/replication-commands/ <br />
 > Parametros de configuración de replica: https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/ <br />
