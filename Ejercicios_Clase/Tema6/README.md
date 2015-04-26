@@ -5,28 +5,28 @@ Preguntas del Tema 6
 
 
 * **Pregunta 1**
-¿Esta es la pregunta 1? <br />
-  + A: Respuesta A <br />
-  + B: Respuesta B <br />
-  + C: Respuesta C <br />
-  + D: Respuesta D <br />
+¿Cuál es el cortafuegos por defecto en linux? <br />
+  + A: Iptables <br />
+  + B: Nagios <br />
+  + C: Sorewall6 <br />
+  + D: IpCop <br />
 
-  Respuesta: **B** <br />
+  Respuesta: **A** <br />
 
 * **Pregunta 2**
-¿Esta es la pregunta 2? <br />
-  + A: Respuesta A <br />
-  + B: Respuesta B <br />
-  + C: Respuesta C <br />
-  + D: Respuesta D <br />
+¿Las politicas de seguridad son...? <br />
+  + A: Un elemento activo de la seguridad <br />
+  + B: Un elemento pasivo de la seguridad <br />
+  + C: Unas reglas a tener en cuenta <br />
+  + D: Una metodología de realizar las cosas <br />
 
-  Respuesta: **B** <br />
+  Respuesta: **D** <br />
 
 * **Pregunta 3**
-¿Esta es la pregunta 3? <br />
-  + A: Respuesta A <br />
-  + B: Respuesta B <br />
-  + C: Respuesta C <br />
-  + D: Respuesta D <br />
+¿Cuál de los siguientes NO es un tipo de ataque? <br />
+  + A: Denegación de Servicio (DOS) <br />
+  + B: Ping of Death <br />
+  + C: dDNS Client <br />
+  + D: Ip Spoofing <br />
 
-  Respuesta: **B** <br />
+  Respuesta: **C** <br />
