@@ -19,10 +19,10 @@ seguridad al replicar los datos en los dos discos.
 > En este paso es cuando le damos formato al disco para poder utilizarlo para almacenar datos, una vez que hemos dado formato a nuestro disco ya podemos montarlo en el sistema para poder usarlo. <br />
 
 ### Paso 1
-Comprobamos la instalación de nuestro sistema:
+Comprobamos la instalación de nuestro sistema:<br />
 <img src="screenshoot01.jpg" alt="Logotipo" width="500px" height="280px">
 ### Paso 2
-Añadimos los discos duros:
+Añadimos los discos duros: <br />
 <img src="screenshoot02.jpg" alt="Logotipo" width="500px" height="280px">
 ### Paso 3
 
