@@ -8,32 +8,34 @@ maquina virtual con Centos 7.1. Esta configuración RAID ofrece una gran
 seguridad al replicar los datos en los dos discos.
 
 
-### Pasos realizados
+## Pasos realizados
 > * Paso 1 <br />
-> La primera parte de la practica es configurar correctamente el servidor MySQL <br />
+> Tenemos que añadir a la maquina virtual los discos duros virtuales que nos van a servir para realizar el RAID 1 de discos. <br />
 > * Paso 2 <br />
-> Para que sea mas fácil de gestionar la base de datos he instalado Apache y phpMyAdmin para la comprobación de las sentencias ejecutadas desde la consola. <br />
+> Una vez que hemos añadido los discos tenemos que hacer que nuestro sistema operativo los reconozcan para que podamos montar el RAID1. <br />
 > * Paso 3 <br />
-> Para no tener que preocuparme de la configuración de estos dos servicios instalados en los dos servidores, creo una tarea programada en el servidor "copia" DB2 que se encarga de tener sincronizada la configuración, de ambos servicios. <br />
+> En este paso es cuando realmente se monta el RAID1 de discos. <br />
 > * Paso 4 <br />
-> Creo los scripts necesarios para comprobar que todos los comandos se pueden realizar sin problemas, entre los dos servidores, de esa manera me aseguro tener los datos preparados para poder ejecutarlos a mano. <br />
-> * Paso 5 <br />
-> . <br />
+> En este paso es cuando le damos formato al disco para poder utilizarlo para almacenar datos, una vez que hemos dado formato a nuestro disco ya podemos montarlo en el sistema para poder usarlo. <br />
 
-### Scripts Adicionales
-Los siguientes scripts, sirven de ayuda a la gestión de los servidores replicados, se ha procurado crear los scripts necesarios tanto para la creación desde cero de las bases de datos, las tablas y los datos necesarios para la realización de la practica. <br />
- * El primero de todos se encarga de crear la base de datos, la tabla y los registros necesarios para realizar la practica. <br />
- * El segundo se encarga de realizar una copia de seguridad de la base de datos que hemos creado antes en DB1 y copiarlo al segundo servidor. <br />
- * Por último el tercero es el encargado de restaurar esa copia de seguridad en el segundo servidor (DB2) y borrar el fichero de copia. <br />
+### Paso 1
+Comprobamos la instalación de nuestro sistema:
+<img src="screenshoot01.jpg" alt="Logotipo" width="500px" height="280px">
+### Paso 2
+Añadimos los discos duros:
+<img src="screenshoot02.jpg" alt="Logotipo" width="500px" height="280px">
+### Paso 3
+
+### Paso 4
+
+## Operaciones Adicionales
+Hasta aquí ya tendriamos completada la tarea para poder usar dos discos en modo espejo, pero claro esta esta opción, solo nos es valida para cuando queremos utilizar el disco como almacenamiento de datos.
+Si queremos que nuestro sistema operativo este almacenado en un sistema raid por software tenemos dos maneras, o bien, lo realizamos cuando hacemos la instalación de nuestro sistema, o bien, despues de realizar las operaciones anteriores pasamos nuestras particiones de sistema, a las particiones del sistema RAID1 y para poder realizr esto lo hacemos de la siguiente manera:<br />
 
 
 ### Configuración Manual
 Hasta aquí hemos conseguido que la replicación de datos sea consistente pero bastante primitiva, puesto que necesitamos de tareas programadas para que se realice el proceso o bien a un técnico que se encargue de monitorizar la copia de datos entre los dos servidores. <br />
 Lo que vamos a intentar ahora es configurar los dos servidores para que actúen como maestro/esclavo, (DB1/DB2), para que la replica de datos sea casi automática. <br />
-
-### Configuración Maestro/Maestro
-Ya hemos visto que se pueden hacer copia de los datos entre servidores, de forma rudimentaria, ahora vamos a realizarlo de manera un poco mas profesional y sin tener que programar tareas para que el replicado de datos se lleve a cabo, sino que se guardaran los datos en los dos servidores simultáneamente.<br />
-La metodología para configurar de esta manera los servidores es bastante sencilla, lo que se hace es configurar un servidor primero como maestro DB1 y el segundo se configura como esclavo DB2, a continuación se realiza la misma operación pero en el otros sentido, así de esa manera, si cualquiera de los dos servidores se estropeara, bastaría con sustituirlo por una maquina nueva y ponerle la misma IP que el servidor que se ha estropeado, de esa manera, una vez configurado correctamente el nuevo servidor se auto replicarían los datos de un servidor a otro.<br />
 
 **Fichero de configuración en DB1**
 ```bash
