@@ -25,45 +25,83 @@ Comprobamos la instalación de nuestro sistema:<br />
 Añadimos los discos duros: <br />
 <img src="screenshoot02.jpg" alt="Logotipo" width="500px" height="280px">
 ### Paso 3
+Ejecutamos los siguientes comandos: <br />
+```bash
+[usuario@server /]$ sudo fdisk -l
+[sudo] password for usuario:
+
+Disk /dev/sda: 8590 MB, 8590983168 bytes, 16779264 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Identificador del disco: 0x0008bbde
+                                                                                                                                                       
+Disposit. Inicio    Comienzo      Fin      Bloques  Id  Sistema
+/dev/sda1   *        2048     1026047      512000   83  Linux
+/dev/sda2         1026048    16779263     7876608   8e  Linux LVM
+
+Disk /dev/sdc: 8589 MB, 8589934592 bytes, 16777216 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Identificador del disco: 0x0004d31c
+
+Disposit. Inicio    Comienzo      Fin      Bloques  Id  Sistema
+
+Disk /dev/sdb: 8589 MB, 8589934592 bytes, 16777216 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Identificador del disco: 0x000c5e20
+
+Disposit. Inicio    Comienzo      Fin      Bloques  Id  Sistema
+
+Disk /dev/mapper/centos-swap: 859 MB, 859832320 bytes, 1679360 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/centos-root: 5242 MB, 5242880000 bytes, 10240000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/centos-home: 1958 MB, 1958739968 bytes, 3825664 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+[usuario@server /]$ sudo mdadm --create /dev/md0 --level=raid1 --raid-devices=2 --metadata=1.0 /dev/sdb1 /dev/sdc1
+[sudo] password for usuario:
+mdadm: array /dev/md0 started.
+[usuario@server /]$ sudo mdadm --create /dev/md1 --level=raid1 --raid-devices=2 /dev/sdb2 /dev/sdc2
+mdadm: array /dev/md1 started.
+
+```
+Como podemos ver desde la salida de consola podemos ver que aparte de los dos discos (sdb, sdc)que hemos añadido a nuestro sistema también, tiene hay un tercer disco que contiene una partición LVM, con tres particiones que contienen, home, root, swap, así después de ver esto lo que vamos a intentar es pasar todas las particiones a nuestro disco RAID1.
 
 ### Paso 4
+Le damos formato a nuestro disco para poder pasar los datos pero como vamos a usarlo de una manera muy particular ponemos los mismos tamaños que tiene las particiones home, root y swap que tiene nuestro disco origen. <br />
+Como hemos hecho 2 particiones y cada una de ellas tiene un formato diferente puesto que una de ellas la vamos a usar para el arranque del sistema tenemos que utilizar diferentes comandos para formatear las unidades RAID. <br />
 
-## Operaciones Adicionales
-Hasta aquí ya tendriamos completada la tarea para poder usar dos discos en modo espejo, pero claro esta esta opción, solo nos es valida para cuando queremos utilizar el disco como almacenamiento de datos.
-Si queremos que nuestro sistema operativo este almacenado en un sistema raid por software tenemos dos maneras, o bien, lo realizamos cuando hacemos la instalación de nuestro sistema, o bien, despues de realizar las operaciones anteriores pasamos nuestras particiones de sistema, a las particiones del sistema RAID1 y para poder realizr esto lo hacemos de la siguiente manera:<br />
-
-
-### Configuración Manual
-Hasta aquí hemos conseguido que la replicación de datos sea consistente pero bastante primitiva, puesto que necesitamos de tareas programadas para que se realice el proceso o bien a un técnico que se encargue de monitorizar la copia de datos entre los dos servidores. <br />
-Lo que vamos a intentar ahora es configurar los dos servidores para que actúen como maestro/esclavo, (DB1/DB2), para que la replica de datos sea casi automática. <br />
-
-**Fichero de configuración en DB1**
 ```bash
-[usuario@DB1 /]# cat /etc/my.cnf
-# bind-address          = 127.0.0.1
-server-id               = 1 # identificador del servidor
-report_host             = 192.168.50.159 # ip del servidor cuando actúa como esclavo
-log_bin                 = /var/log/mariadb/mariadb-bin 
-log_bin_index           = /var/log/mariadb/mariadb-bin.index
-relay_log               = /var/log/mariadb/relay-bin
-relay_log_index         = /var/log/mariadb/relay-bin.index
-replicate-do-db         = contactos # solo se replicará esta base de datos
-...
-[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="create user 'replicauser'@'%' identified by 'contraseña'"
-[usuario@DB1 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="grant replication slave on *.* to 'replicauser'@'%'"
+[usuario@server /]$ sudo mkfs.xfs -b size=512 -L raid_boot -f /dev/md0p1
+
+[usuario@server /]$ sudo pvcreate /dev/md0p2 --> *physical volumen create*
+[usuario@server /]$ sudo vgcreate raid /dev/md0p2  --> *volumen group create*
+[usuario@server /]$ sudo lvcreate -L 4,9G -n raid_root raid  --> *logical volumen create*
+[usuario@server /]$ sudo lvcreate -L 792M -n raid_swap raid  --> *logical volumen create*
+[usuario@server /]$ sudo lvcreate -L 1,82G -n raid_home raid --> *logical volumen create*
 ```
 
-<pre><code>
-[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="stop slave"
-[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="change master to master_host='<b>192.168.50.159</b>', MASTER_USER='replicauser', MASTER_PASSWORD='contraseña', MASTER_LOG_FILE='mariadb-bin.000001', MASTER_LOG_POS=245"
-[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="start slave"
-[usuario@DB2 /]# mysql --host=localhost --user=root --password=contraseña --database="contactos" --execute="unlock tables"
-</code></pre>
+## Operaciones Adicionales
+Para probar las características del sistema de discos RAID 1, lo que vamos ha hacer a continuación es simular que cuando se reinicia nuestro servidor uno de los discos del RAID deja de funcionar.
 
-### Bibliografía
-> Página web de MariaDB: https://mariadb.com/kb/en/mariadb/replication-cluster-multi-master/ <br />
-> Comandos mas usados: https://mariadb.com/kb/en/mariadb/replication-commands/ <br />
-> Parametros de configuración de replica: https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/ <br />
 
 ### Conclusiones
 Bueno la primera parte de la practica, se supone que es mas fácil por que es algo que ya hemos visto en las anteriores, aun así hay que tener cuidado a la hora de utilizar los comandos de copia entre servidores para clonar las configuraciones de ambos por que, si no vamos con cuidado podemos copiar la configuración mala, en el servidor con la configuración buena.<br />
