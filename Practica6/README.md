@@ -90,14 +90,22 @@ Le damos formato a nuestro disco para poder pasar los datos pero como vamos a us
 Como hemos hecho 2 particiones y cada una de ellas tiene un formato diferente puesto que una de ellas la vamos a usar para el arranque del sistema tenemos que utilizar diferentes comandos para formatear las unidades RAID. <br />
 
 ```bash
-[usuario@server /]$ sudo mkfs.xfs -b size=512 -L raid_boot -f /dev/md0p1
-
-[usuario@server /]$ sudo pvcreate /dev/md0p2 --> *physical volumen create*
-[usuario@server /]$ sudo vgcreate raid /dev/md0p2  --> *volumen group create*
-[usuario@server /]$ sudo lvcreate -L 4,9G -n raid_root raid  --> *logical volumen create*
-[usuario@server /]$ sudo lvcreate -L 792M -n raid_swap raid  --> *logical volumen create*
-[usuario@server /]$ sudo lvcreate -L 1,82G -n raid_home raid --> *logical volumen create*
+01-[usuario@server /]$ sudo mkfs.xfs -b size=512 -L raid_boot -f /dev/md0p1
+02-[usuario@server /]$ sudo pvcreate /dev/md0p2
+03-[usuario@server /]$ sudo vgcreate raid /dev/md0p2
+04-[usuario@server /]$ sudo lvcreate -L 4,9G -n raid_root raid 
+05-[usuario@server /]$ sudo lvcreate -L 792M -n raid_swap raid
+06-[usuario@server /]$ sudo lvcreate -L 1,82G -n raid_home raid
+07-[usuario@server /]$ sudo mkfs.ext4 /dev/mapper/raid-raid_root
+08-[usuario@server /]$ sudo mkfs.ext4 /dev/mapper/raid-raid_home
+09-[usuario@server /]$ sudo mkswap /dev/mapper/raid-raid_swap
+10-[usuario@server /]$ sudo dd if=/dev/mapper/centos-root of=/dev/mapper/raid-raid_root bs=512 conv=noerror,sync
+11-[usuario@server /]$ sudo dd if=/dev/mapper/centos-home of=/dev/mapper/raid-raid_home bs=512 conv=noerror,sync
+12-[usuario@server /]$ sudo dd if=/dev/sda1 of=/dev/md0p1 bs=512 conv=noerror,sync
 ```
+Si nos fijamos en las lineas de arriba podemos darnos cuenta que la linea 01 se encarga de dar formato a la partición de arranque del nuevo disco, como en estos discos RAID también los vamos a dotar de las utilidades que nos dan las particiones LVM, pues utilizamos los comandos de las lineas 02 y 03 para crear el volumen físico y el grupo del volumen físico en la segunda partición del disco RAID, después de eso lo que hacemos es crear unidades lógicas para que alberguen nuestro sistema de archivos, en este caso vamos a utilizar el sistema ext4 (lineas 07 y 08) para las particiones de root y home. <br />
+Después de esto creamos la partición de swap para el nuevo disco, en la linea 09, realizamos esta operación y ya por ultimo lo que nos queda es pasar toda la información de las particiones que tiene nuestro disco origen a nuestro disco RAID destino. <br />
+Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12.
 
 ## Operaciones Adicionales
 Para probar las características del sistema de discos RAID 1, lo que vamos ha hacer a continuación es simular que cuando se reinicia nuestro servidor uno de los discos del RAID deja de funcionar.
