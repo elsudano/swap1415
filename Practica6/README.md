@@ -108,9 +108,7 @@ Después de esto creamos la partición de swap para el nuevo disco, en la linea 
 Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12.
 
 ## Operaciones Adicionales
-Para probar las características del sistema de discos RAID 1, lo que vamos ha hacer a continuación es simular que cuando se reinicia nuestro servidor uno de los discos del RAID deja de funcionar.
-
+<br />
 
 ### Conclusiones
-Bueno la primera parte de la practica, se supone que es mas fácil por que es algo que ya hemos visto en las anteriores, aun así hay que tener cuidado a la hora de utilizar los comandos de copia entre servidores para clonar las configuraciones de ambos por que, si no vamos con cuidado podemos copiar la configuración mala, en el servidor con la configuración buena.<br />
-Aparte de eso es bastante sencillo poder crear una copia del servidor completo por si al maestro le sucediera algo. Después la segunda parte de la practica se complica un poco mas, pero esta claro que es la configuración que tenemos que realizar para cuando tenemos servidores en producción, puesto que de esta forma no bloqueamos la inserción de datos mientras estamos realizando una copia de seguridad en el otro servidor, pero claro que esto también tiene la pega, de que si nos equivocamos, y borramos registros sin querer hacerlo, también se borran en el otros servidor, por lo tanto hay que tener claro que aunque tengamos, replicados los datos para posibles contingencias frente a fallos, también hay que realizar copias de seguridad programadas.
+Esta practica ha sido bastante sencilla, la única complicación, por buscar alguna, es intentar montar el sistema RAID de un sistema operativo ya montado, osea que una vez tenemos el sistema operativo Linux instalado en la maquina, tenemos que montar el sistema RAID en el disco duro donde se aloja el sistema sin perder la información que ya tenemos instalada. <br />
