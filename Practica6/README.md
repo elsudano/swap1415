@@ -108,7 +108,7 @@ Después de esto creamos la partición de swap para el nuevo disco, en la linea 
 Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12.
 
 ## Operaciones Adicionales
-<br />
+Esta ultima parte es extra y lo que vamos a mostrar es como al quitar uno de los discos que componen el RAID podemos seguir trabajando perfectamente con la maquina sin que esta se vea afectada por la ruptura de dicho componente.<br />
 
 ### Conclusiones
 Esta practica ha sido bastante sencilla, la única complicación, por buscar alguna, es intentar montar el sistema RAID de un sistema operativo ya montado, osea que una vez tenemos el sistema operativo Linux instalado en la maquina, tenemos que montar el sistema RAID en el disco duro donde se aloja el sistema sin perder la información que ya tenemos instalada. <br />
