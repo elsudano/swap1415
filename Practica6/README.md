@@ -127,6 +127,13 @@ Esta ultima parte es extra y lo que vamos a mostrar es como al quitar uno de los
 Después forzar el fallo por software <br />
 <img src="screenshoot05.jpg" alt="Logotipo" width="613px" height="845px"><br />
 
+Una vez comprobado el estado de los discos duros lo unico que hace falta es borrar el disco del RAID y volverlo a añadir<br />
+
+```bash
+[usuario@server /]$ sudo mdadm --manage --set-faulty /dev/md0 /dev/sdb
+```
+<img src="screenshoot06.jpg" alt="Logotipo" width="613px" height="430px"><br />
+
 ### Bibliografía
 How to RAID on Linux -- http://tldp.org/HOWTO/Software-RAID-HOWTO-6.html
 
