@@ -105,7 +105,7 @@ Como hemos hecho 2 particiones y cada una de ellas tiene un formato diferente pu
 ```
 Si nos fijamos en las lineas de arriba podemos darnos cuenta que la linea 01 se encarga de dar formato a la partición de arranque del nuevo disco, como en estos discos RAID también los vamos a dotar de las utilidades que nos dan las particiones LVM, pues utilizamos los comandos de las lineas 02 y 03 para crear el volumen físico y el grupo del volumen físico en la segunda partición del disco RAID, después de eso lo que hacemos es crear unidades lógicas para que alberguen nuestro sistema de archivos, en este caso vamos a utilizar el sistema ext4 (lineas 07 y 08) para las particiones de root y home. <br />
 Después de esto creamos la partición de swap para el nuevo disco, en la linea 09, realizamos esta operación y ya por ultimo lo que nos queda es pasar toda la información de las particiones que tiene nuestro disco origen a nuestro disco RAID destino. <br />
-Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12. Por ultimo y para poder ver que todos los datos se ha transferido correctamente en las siguientes lineas montaremos las unidades que hemos creado para poder listar sus contenidos.<br />
+Estas operaciones están reflejadas desde la linea 10 hasta la linea 12. Por ultimo y para poder ver que todos los datos se ha transferido correctamente en las siguientes lineas montaremos las unidades que hemos creado para poder listar sus contenidos.<br />
 
 ```bash
 [usuario@server /]$ sudo mount /dev/mapper/raid-raid_root /mnt/root
@@ -130,7 +130,8 @@ Después forzar el fallo por software <br />
 Una vez comprobado el estado de los discos duros lo unico que hace falta es borrar el disco del RAID y volverlo a añadir<br />
 
 ```bash
-[usuario@server /]$ sudo mdadm --manage --set-faulty /dev/md0 /dev/sdb
+[usuario@server /]$ sudo mdadm --manage --remove /dev/md0 /dev/sdb
+[usuario@server /]$ sudo mdadm --manage --add /dev/md0 /dev/sdb
 ```
 <img src="screenshoot06.jpg" alt="Logotipo" width="613px" height="430px"><br />
 
