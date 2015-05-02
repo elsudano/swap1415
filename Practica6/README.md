@@ -112,10 +112,10 @@ Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12. Por ulti
 [usuario@server /]$ sudo mount /dev/mapper/raid-raid_home /mnt/home
 ```
 Antes de montar las particiones <br />
-<img src="screenshoot03.jpg" alt="Logotipo" width="500px" height="280px"><br />
+<img src="screenshoot03.jpg" alt="Logotipo" width="613px" height="522px"><br />
 
 Después de montar las particiones <br />
-<img src="screenshoot04.jpg" alt="Logotipo" width="500px" height="280px"><br />
+<img src="screenshoot04.jpg" alt="Logotipo" width="613px" height="522px"><br />
 
 ## Operaciones Adicionales
 Esta ultima parte es extra y lo que vamos a mostrar es como al quitar uno de los discos que componen el RAID podemos seguir trabajando perfectamente con la maquina sin que esta se vea afectada por la ruptura de dicho componente.<br />
@@ -126,7 +126,7 @@ Esta ultima parte es extra y lo que vamos a mostrar es como al quitar uno de los
 ```
 
 Después forzar el fallo por software <br />
-<img src="screenshoot05.jpg" alt="Logotipo" width="500px" height="280px"><br />
+<img src="screenshoot05.jpg" alt="Logotipo" width="613px" height="845px"><br />
 
 ### Bibliografía
 How to RAID on Linux -- http://tldp.org/HOWTO/Software-RAID-HOWTO-6.html
