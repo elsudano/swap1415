@@ -109,7 +109,6 @@ Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12. Por ulti
 
 ```bash
 [usuario@server /]$ sudo mount /dev/mapper/raid-raid_root /mnt/root
-[usuario@server /]$ sudo mount /dev/mapper/raid-raid_home /mnt/home
 ```
 Antes de montar las particiones <br />
 <img src="screenshoot03.jpg" alt="Logotipo" width="613px" height="522px"><br />
