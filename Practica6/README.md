@@ -105,10 +105,32 @@ Como hemos hecho 2 particiones y cada una de ellas tiene un formato diferente pu
 ```
 Si nos fijamos en las lineas de arriba podemos darnos cuenta que la linea 01 se encarga de dar formato a la partición de arranque del nuevo disco, como en estos discos RAID también los vamos a dotar de las utilidades que nos dan las particiones LVM, pues utilizamos los comandos de las lineas 02 y 03 para crear el volumen físico y el grupo del volumen físico en la segunda partición del disco RAID, después de eso lo que hacemos es crear unidades lógicas para que alberguen nuestro sistema de archivos, en este caso vamos a utilizar el sistema ext4 (lineas 07 y 08) para las particiones de root y home. <br />
 Después de esto creamos la partición de swap para el nuevo disco, en la linea 09, realizamos esta operación y ya por ultimo lo que nos queda es pasar toda la información de las particiones que tiene nuestro disco origen a nuestro disco RAID destino. <br />
-Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12.
+Estas operaciones estan reflejadas desde la linea 10 hasta la linea 12. Por ultimo y para poder ver que todos los datos se ha transferido correctamente en las siguientes lineas montaremos las unidades que hemos creado para poder listar sus contenidos.<br />
+
+```bash
+[usuario@server /]$ sudo mount /dev/mapper/raid-raid_root /mnt/root
+[usuario@server /]$ sudo mount /dev/mapper/raid-raid_home /mnt/home
+```
+Antes de montar las particiones <br />
+<img src="screenshoot02.jpg" alt="Logotipo" width="500px" height="280px"><br />
+
+Después de montar las particiones <br />
+<img src="screenshoot02.jpg" alt="Logotipo" width="500px" height="280px"><br />
 
 ## Operaciones Adicionales
 Esta ultima parte es extra y lo que vamos a mostrar es como al quitar uno de los discos que componen el RAID podemos seguir trabajando perfectamente con la maquina sin que esta se vea afectada por la ruptura de dicho componente.<br />
 
+```bash
+[usuario@server /]$ sudo raidsetfaulty /dev/md1 /dev/sdc2
+[usuario@server /]$ sudo mount /dev/mapper/raid-raid_home /mnt/home
+```
+
+Después forzar el fallo por software <br />
+<img src="screenshoot02.jpg" alt="Logotipo" width="500px" height="280px"><br />
+
+### Bibliografía
+How to RAID on Linux -- http://tldp.org/HOWTO/Software-RAID-HOWTO-6.html
+
 ### Conclusiones
 Esta practica ha sido bastante sencilla, la única complicación, por buscar alguna, es intentar montar el sistema RAID de un sistema operativo ya montado, osea que una vez tenemos el sistema operativo Linux instalado en la maquina, tenemos que montar el sistema RAID en el disco duro donde se aloja el sistema sin perder la información que ya tenemos instalada. <br />
+
