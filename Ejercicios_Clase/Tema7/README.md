@@ -2,8 +2,6 @@ Preguntas del Tema 7
 ====================
 ### Objetivos
 
-
-
 * **Pregunta 1**
 ¿Que tipo de RAID es el que brinda mas redundancia y seguridad? <br />
   + A: RAID 0 <br />

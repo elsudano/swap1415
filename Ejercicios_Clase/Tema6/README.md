@@ -2,8 +2,6 @@ Preguntas del Tema 6
 ====================
 ### Objetivos
 
-
-
 * **Pregunta 1**
 ¿Cuál es el cortafuegos por defecto en linux? <br />
   + A: Iptables <br />
