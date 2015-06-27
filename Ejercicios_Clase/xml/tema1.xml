@@ -577,7 +577,7 @@
         <solucion>A</solucion>
     </pregunta>
     <pregunta>
-        <enunciado><En un sitio web mal planificado:/enunciado>
+        <enunciado>En un sitio web mal planificado:</enunciado>
         <opcionA>No se dan problemas de seguridad.</opcionA>
         <opcionB>No se tardará en experimentar problemas conforme se incremente el tráfico red.</opcionB>
         <opcionC>Merece la pena parchear el sistema a varios niveles.</opcionC>
