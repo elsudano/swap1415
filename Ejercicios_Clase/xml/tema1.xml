@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tema titulo="Tema 1: Introducción, Conceptos Basicos" cantidad_preguntas="19">
+    <pregunta>
+        <enunciado>A la hora de montar una granja web, ¿qué ventajas/desventajas podemos tener?</enunciado>
+        <opcionA>La instalación y configuración es fácil, pero no es escalable.</opcionA>
+        <opcionB>Es escalable, pero tiene muy baja disponibilidad.</opcionB>
+        <opcionC>Es escalable y con alta disponibilidad, pero la instalación y configuración es compleja.</opcionC>
+        <opcionD>Ninguna de las anteriores.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Cuál de las siguientes afirmaciones es FALSA?</enunciado>
+        <opcionA>Las granjas web resuelven los problemas de sistemas más simples para dar servicio a un número alto de usuarios.</opcionA>
+        <opcionB>Las granjas web son sistemas muy sencillos pero sumamente inflexibles.</opcionB>
+        <opcionC>Las granjas web, en muchos casos, albergarán muchos sitios web.</opcionC>
+        <opcionD>Una granja web es un conjunto de servidores dedicados a servir contenido web a los usuarios finales.</opcionD>
+        <solucion>B</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Qué posibles problemas debemos evitar a la hora de planificar un sitio web?</enunciado>
+        <opcionA>Problemas de la arquitectura del sistema.</opcionA>
+        <opcionB>Problemas con la disponibilidad.</opcionB>
+        <opcionC>Problemas con la carga del sistema.</opcionC>
+        <opcionD>Todas las anteriores son correctas.</opcionD>
+        <solucion>D</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>En una granja web, ¿puede haber distintos servidores web (Apache,nginx,thttpd,etc.) trabajando en las distintas máquinas destinadas a servir contenido web? (Por ejemplo, un servidor web usa Apache, otro usa nginx y otro usa httpd):</enunciado>
+        <opcionA>No.</opcionA>
+        <opcionB>Sí, siempre que haya un cortafuegos.</opcionB>
+        <opcionC>Sí, por supuesto.</opcionC>
+        <opcionD>Sí, si todos usan HTML5.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Qué elementos hardware son los que suelen fallar primero ante un incremento de uso en el servidor?</enunciado>
+        <opcionA>Ratones y discos duros.</opcionA>
+        <opcionB>Teclados y ratones.</opcionB>
+        <opcionC>Tarjetas gráficas y fuentes de alimentación.</opcionC>
+        <opcionD>Fuentes de alimentación y discos duros.</opcionD>
+        <solucion>D</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Un sitio web mal planificado puede presentar problemas...</enunciado>
+        <opcionA>con la arquitectura del sistema</opcionA>
+        <opcionB>con la disponibilidad</opcionB>
+        <opcionC>con la carga del sistema</opcionC>
+        <opcionD>todas las anteriores</opcionD>
+        <solucion>D</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Cuando un sitio web esta mal planificado y los fallos son irreparables, ¿cual es la mejor solución?</enunciado>
+        <opcionA>Configurar varias máquinas, dedicando cada una a un servicio</opcionA>
+        <opcionB>Reestructurar todo el sistema.</opcionB>
+        <opcionC>Tener una maquina replicada o cold spare server</opcionC>
+        <opcionD>Comprar una segunda maquina</opcionD>
+        <solucion>B</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Las granjas web...</enunciado>
+        <opcionA>Son solamente sistemas muy complejos</opcionA>
+        <opcionB>Son sistemas muy complejos y poco flexibles</opcionB>
+        <opcionC>Son muy flexibles y bastante complejos</opcionC>
+        <opcionD>No son funcionales</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Un sitio web mal planificado nunca ...</enunciado>
+        <opcionA>Tiene problemas de la arquitectura del sistema</opcionA>
+        <opcionB>Tiene problemas con la disponibilidad</opcionB>
+        <opcionC>Tiene problemas con la carga del sistema</opcionC>
+        <opcionD>Llega a funcionar correctamente ya que está mal planificado</opcionD>
+        <solucion>D</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Qué es una granja web?</enunciado>
+        <opcionA>Una granja web es un conjunto de servidores dedicados a servir contenido web a los usuarios finales.</opcionA>
+        <opcionB>Una granja web es un solo servidor con diferentes maquinas virtuales instanciadas.</opcionB>
+        <opcionC>a y b son correctas.</opcionC>
+        <opcionD>Ninguna de las dos anteriores es correctas.</opcionD>
+        <solucion>A</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Cual es la forma mas eficaz para mejorar la disponibilidad?</enunciado>
+        <opcionA>Asegurandose de que el software esta actualizado.</opcionA>
+        <opcionB>Tener a una persona 24 horas monitorizando los sistemas.</opcionB>
+        <opcionC>Con el uso de subsistemas redundantes.</opcionC>
+        <opcionD>Usando un servidor de produccion y otro de desarrollo.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Qué es la escalabilidad?</enunciado>
+        <opcionA>La propiedad de un sistema para crear nuevas hebras.</opcionA>
+        <opcionB>La capacidad de un sistema para estar online el mayor tiempo posible.</opcionB>
+        <opcionC>a y b son correctas.</opcionC>
+        <opcionD>La escalabilidad se refiere a la capacidad de un sistema de manejar la carga, y el esfuerzo para adaptarse al nuevo nivel de carga</opcionD>
+        <solucion>D</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Cual es la ventaja de montar un servidor en una máquina?</enunciado>
+        <opcionA>Escalabilidad y alta disponibilidad</opcionA>
+        <opcionB>Las mejoras en software se pueden probar en la máquina de desarrollo antes de pasarlas al servidor de producción</opcionB>
+        <opcionC>La instalación es rápida y fácil</opcionC>
+        <opcionD>Todas son incorrectas</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Qué es una granja web?</enunciado>
+        <opcionA>Es un conjunto de servidores dedicados a servir contenido web a los usuarios finales</opcionA>
+        <opcionB>Se trata de un único servidor que sirve contenido web</opcionB>
+        <opcionC>Servidores almacenados en una granja</opcionC>
+        <opcionD>Todas son incorrectas</opcionD>
+        <solucion>A</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Para crear un sitio web de éxito, debemos..</enunciado>
+        <opcionA>Montar el servidor en una sola máquina.</opcionA>
+        <opcionB>Adquirir un segundo servidor para desarrollo.</opcionB>
+        <opcionC>Montar una granja web escalable con alta disponibilidad.</opcionC>
+        <opcionD>Ninguna de las anteriores es correcta.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Cuál de las siguientes respuestas no es un problema de la arquitectura del sistema de un sitio web mal planificado?</enunciado>
+        <opcionA>Riesgo de seguridad.</opcionA>
+        <opcionB>Modificaciones directamente en el servidor de producción.</opcionB>
+        <opcionC>Errores derivados de programación.</opcionC>
+        <opcionD>El servidor se pone en marcha sin cortafuegos.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Qué hace falta para montar un servidor en una sola máquina?</enunciado>
+        <opcionA>Aplicación de servidor web + sistema operativo bien configurado + conexión a Internet.</opcionA>
+        <opcionB>Sistema operativo bien configurado + conexión a Internet.</opcionB>
+        <opcionC>Aplicación de servidor web + conexión a Internet + mantenimiento.</opcionC>
+        <opcionD>Aplicación de servidor web + mantenimiento.</opcionD>
+        <solucion>A</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Una granja web además der ser sistemas muy complejos pero sumamente...</enunciado>
+        <opcionA>escalables, fiables y flexibles.</opcionA>
+        <opcionB>flexibles, escalables y funcionales.</opcionB>
+        <opcionC>seguros, escalables y flexibles.</opcionC>
+        <opcionD>rentables.</opcionD>
+        <solucion>B</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+</tema>
