@@ -49,7 +49,7 @@
         <solucion>B</solucion>
     </pregunta>
     <pregunta>
-        <enunciado><¿Cual de las siguientes opciones no es una métrica para la medida de prestaciones de un servidor?/enunciado>
+        <enunciado>¿Cual de las siguientes opciones no es una métrica para la medida de prestaciones de un servidor?</enunciado>
         <opcionA>Transacciones por segundo</opcionA>
         <opcionB>Horas de servicio ininterrumpido</opcionB>
         <opcionC>número de conexiones concurrentes</opcionC>
