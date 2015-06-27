@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tema titulo="Tema 1: Introducción, Conceptos Basicos" cantidad_preguntas="19">
+<tema titulo="Tema 1: Introducción, Conceptos Basicos" cantidad_preguntas="24">
     <pregunta>
         <enunciado>A la hora de montar una granja web, ¿qué ventajas/desventajas podemos tener?</enunciado>
         <opcionA>La instalación y configuración es fácil, pero no es escalable.</opcionA>
@@ -143,6 +143,174 @@
         <opcionC>seguros, escalables y flexibles.</opcionC>
         <opcionD>rentables.</opcionD>
         <solucion>B</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Que es una granja WEB?</enunciado>
+        <opcionA>Un sitio donde se desarrollan páginas WEBs</opcionA>
+        <opcionB>El nombre común de Silicon Valey</opcionB>
+        <opcionC>Conjunto de servidores que sirven páginas WEBs</opcionC>
+        <opcionD>Ninguna es correcta</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>¿Que es la escalabilidad?</enunciado>
+        <opcionA>Es la altitud máxima a la que puede trabajar un servidor WEB</opcionA>
+        <opcionB>Es la medida para saber cuantos servidores se pueden apilar uno encima de otro</opcionB>
+        <opcionC>Es la capacidad para dar soporte a un número creciente de usuarios</opcionC>
+        <opcionD>Ninguna es correcta</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Un sitio web con problemas con la carga del sistema:</enunciado>
+        <opcionA>Una posible solución es configurar varias máquinas, dedicando una a cada servicio que se esté ofreciendo.</opcionA>
+        <opcionB>Un fallo en una máquina siempre afecta a todas las demás.</opcionB>
+        <opcionC>Una posible solución es configurar una máquina dedicándole los servicios que estamos ofreciendo.</opcionC>
+        <opcionD>No tienen nada que ver los problemas con el número de accesos.</opcionD>
+        <solucion>A</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Un sitio web con problemas con la disponibilidad:</enunciado>
+        <opcionA>Las actualizaciones de los servicios nunca afectan al rendimiento global.</opcionA>
+        <opcionB>Los cambios que realicemos se quedan en el servidor de desarrollo.</opcionB>
+        <opcionC>Una posible solución es tener una máquina replicada.</opcionC>
+        <opcionD>Los retoques del código o quitar servicios son una buena solución para que nunca más aparezcan problemas.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>La capacidad para dar soporte a un número creciente de usuarios es:</enunciado>
+        <opcionA>Una granja web.</opcionA>
+        <opcionB>Sinónimo de disponibilidad.</opcionB>
+        <opcionC>Un sitio web mal planificado.</opcionC>
+        <opcionD>Sinonimo de escalabilidad.</opcionD>
+        <solucion>D</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado>Lo mas recomendable para tener un sitio web eficiente donde sus principales caracteristicas tecnicas son la disponibilidad y la escalabilidad:</enunciado>
+        <opcionA>Implementar un DMZ tradicional.</opcionA>
+        <opcionB>Montar un único servidor web.</opcionB>
+        <opcionC>Disponer de una granja web.</opcionC>
+        <opcionD>Invertir en una buena CPU.</opcionD>
+        <solucion>C</solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
+    </pregunta>
+    <pregunta>
+        <enunciado></enunciado>
+        <opcionA></opcionA>
+        <opcionB></opcionB>
+        <opcionC></opcionC>
+        <opcionD></opcionD>
+        <solucion></solucion>
     </pregunta>
     <pregunta>
         <enunciado></enunciado>
